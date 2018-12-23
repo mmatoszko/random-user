@@ -14,6 +14,7 @@
 		D8B0E54521CD6AC20005B871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8B0E54321CD6AC20005B871 /* LaunchScreen.storyboard */; };
 		D8B0E55021CD6AC20005B871 /* RandomUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E54F21CD6AC20005B871 /* RandomUserTests.swift */; };
 		D8B0E55B21CD6AC20005B871 /* RandomUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */; };
+		D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D8B0E55621CD6AC20005B871 /* RandomUserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserUITests.swift; sourceTree = "<group>"; };
 		D8B0E55C21CD6AC20005B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8BA533A21D0528100B987A8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +84,7 @@
 				D8B0E54E21CD6AC20005B871 /* RandomUserTests */,
 				D8B0E55921CD6AC20005B871 /* RandomUserUITests */,
 				D8B0E53521CD6AC00005B871 /* Products */,
+				D8BA533921D0528000B987A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +129,14 @@
 			path = RandomUserUITests;
 			sourceTree = "<group>";
 		};
+		D8BA533921D0528000B987A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8BA533A21D0528100B987A8 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +147,7 @@
 				D8B0E53021CD6AC00005B871 /* Sources */,
 				D8B0E53121CD6AC00005B871 /* Frameworks */,
 				D8B0E53221CD6AC00005B871 /* Resources */,
+				D8BA533C21D0530100B987A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -249,6 +262,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8BA533C21D0530100B987A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8B0E53021CD6AC00005B871 /* Sources */ = {
@@ -425,6 +460,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RandomUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,6 +481,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RandomUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
