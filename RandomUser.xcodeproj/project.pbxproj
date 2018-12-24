@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D8B0E53821CD6AC00005B871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53721CD6AC00005B871 /* AppDelegate.swift */; };
 		D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53921CD6AC00005B871 /* UserListViewController.swift */; };
 		D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53E21CD6AC00005B871 /* RandomUser.xcdatamodeld */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D8B0E53421CD6AC00005B871 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E53721CD6AC00005B871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B0E53921CD6AC00005B871 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */,
 				D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,6 +135,7 @@
 		D8BA533921D0528000B987A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D87EE55421D13B090076195F /* RxCocoa.framework */,
 				D8BA533A21D0528100B987A8 /* RxSwift.framework */,
 			);
 			name = Frameworks;
@@ -273,11 +277,13 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
