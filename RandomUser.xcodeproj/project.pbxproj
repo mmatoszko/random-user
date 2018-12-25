@@ -10,6 +10,7 @@
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55821D13B6D0076195F /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55721D13B6D0076195F /* RestApi.swift */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
+		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
 		D8B0E53821CD6AC00005B871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53721CD6AC00005B871 /* AppDelegate.swift */; };
 		D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53921CD6AC00005B871 /* UserListViewController.swift */; };
 		D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53E21CD6AC00005B871 /* RandomUser.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55721D13B6D0076195F /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestApi.swift; path = RandomUser/Networking/RestApi.swift; sourceTree = SOURCE_ROOT; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		D8B0E53421CD6AC00005B871 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E53721CD6AC00005B871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B0E53921CD6AC00005B871 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D87EE55D21D1C38A0076195F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D87EE55E21D1C3AF0076195F /* UserTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D8B0E52B21CD6AC00005B871 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		D8B0E54E21CD6AC20005B871 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
+				D87EE55D21D1C38A0076195F /* Model */,
 				D8B0E54F21CD6AC20005B871 /* RandomUserTests.swift */,
 				D8B0E55121CD6AC20005B871 /* Info.plist */,
 			);
@@ -331,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */,
 				D8B0E55021CD6AC20005B871 /* RandomUserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

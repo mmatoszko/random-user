@@ -8,5 +8,29 @@
 
 import Foundation
 
-struct User {
+struct Users: Decodable {
+    let results: [User]
+}
+
+struct User: Decodable {
+    let name: Name
+    let email: String
+    let login: Login
+    let picture: Picture
+
+    struct Name: Decodable {
+        let title: String
+        let first: String
+        let last: String
+    }
+
+    struct Login: Decodable {
+        let uuid: String
+    }
+
+    struct Picture: Decodable {
+        let large: URL
+        let medium: URL
+        let thumbnail: URL
+    }
 }
