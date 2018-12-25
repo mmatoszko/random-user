@@ -13,7 +13,7 @@ import RxCocoa
 
 final class RestApi {
 
-    private let apiUrl = URL(string: "https://randomuser.me/api/?results=5000")!
+    private let apiUrl = URL(string: "https://randomuser.me/api/?results=5")!
 
     private let urlSession: URLSession
 
@@ -23,17 +23,9 @@ final class RestApi {
 
     func getUsers() -> Observable<[User]> {
         let request = URLRequest(url: apiUrl)
-        return urlSession.rx.json(request: request).map { jsonData in
-            guard let responseData = jsonData as? [String: Any] else {
-                throw ApiError.unexpectedResponse
-            }
-            return [User()]
+        return urlSession.rx.data(request: request).map { data in
+            let users = try JSONDecoder().decode(Users.self, from: data)
+            return users.results
         }
-    }
-
-    // MARK: - Errors
-
-    enum ApiError: Error {
-        case unexpectedResponse
     }
 }
