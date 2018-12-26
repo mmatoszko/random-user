@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77821D30AD4005E0AC9 /* RestApi.swift */; };
+		D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77B21D30FD1005E0AC9 /* UserStore.swift */; };
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		D81CC77821D30AD4005E0AC9 /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		D81CC77B21D30FD1005E0AC9 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		D81CC77A21D30E36005E0AC9 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				D81CC77B21D30FD1005E0AC9 /* UserStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		D87EE55A21D13FBF0076195F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 			children = (
 				D87EE55A21D13FBF0076195F /* Model */,
 				D81CC77721D30AAE005E0AC9 /* Networking */,
+				D81CC77A21D30E36005E0AC9 /* Persistence */,
 				D8B0E53721CD6AC00005B871 /* AppDelegate.swift */,
 				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
 				D8B0E54121CD6AC20005B871 /* Assets.xcassets */,
@@ -332,6 +343,7 @@
 				D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */,
 				D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */,
 				D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */,
+				D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */,
 				D87EE55C21D13FDB0076195F /* User.swift in Sources */,
 				D8B0E53821CD6AC00005B871 /* AppDelegate.swift in Sources */,
 			);
