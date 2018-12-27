@@ -13,6 +13,7 @@
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
+		D88E23D821D524000098EA37 /* UserInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */; };
 		D8B0E53821CD6AC00005B871 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53721CD6AC00005B871 /* AppDelegate.swift */; };
 		D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53921CD6AC00005B871 /* UserListViewController.swift */; };
 		D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53E21CD6AC00005B871 /* RandomUser.xcdatamodeld */; };
@@ -47,6 +48,7 @@
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationCoordinator.swift; sourceTree = "<group>"; };
 		D8B0E53421CD6AC00005B871 /* RandomUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E53721CD6AC00005B871 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8B0E53921CD6AC00005B871 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
+				D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88E23D821D524000098EA37 /* UserInformationCoordinator.swift in Sources */,
 				D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */,
 				D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */,
 				D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */,
