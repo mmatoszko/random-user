@@ -130,6 +130,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D88E23D621D523300098EA37 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		D8B0E52B21CD6AC00005B871 = {
 			isa = PBXGroup;
 			children = (
@@ -154,12 +162,12 @@
 		D8B0E53621CD6AC00005B871 /* RandomUser */ = {
 			isa = PBXGroup;
 			children = (
+				D88E23D621D523300098EA37 /* Presentation */,
 				D87EE55A21D13FBF0076195F /* Model */,
 				D81CC77D21D42D3E005E0AC9 /* Repositories */,
 				D81CC77721D30AAE005E0AC9 /* Networking */,
 				D81CC77A21D30E36005E0AC9 /* Persistence */,
 				D8B0E53721CD6AC00005B871 /* AppDelegate.swift */,
-				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
 				D8B0E54121CD6AC20005B871 /* Assets.xcassets */,
 				D8B0E54321CD6AC20005B871 /* LaunchScreen.storyboard */,
 				D8B0E54621CD6AC20005B871 /* Info.plist */,
