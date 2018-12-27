@@ -12,15 +12,14 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var userInformationCoordinator: UserInformationCoordinator?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let userListViewController = UserListViewController()
-        window.rootViewController = userListViewController
-        window.makeKeyAndVisible()
-        self.window = window
+        let userInformationCoordinator = UserInformationCoordinator(window: window)
+        userInformationCoordinator.start()
+        self.userInformationCoordinator = userInformationCoordinator
         return true
     }
 
