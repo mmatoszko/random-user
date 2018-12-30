@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-final class UserInformationCoordinator {
+protocol UserInformationCoordinating: class {
+    func showUserDetails(user: User)
+    func showListOfUsers()
+}
+
+final class UserInformationCoordinator: UserInformationCoordinating {
 
     private let window: UIWindow
     private let userStore: UserStore
@@ -21,8 +26,17 @@ final class UserInformationCoordinator {
 
     func start() {
         let userListViewController = UserListViewController(userRepository: userRepository)
+        userListViewController.coordinator = self
         window.rootViewController = userListViewController
         window.makeKeyAndVisible()
+    }
+
+    func showUserDetails(user: User) {
+        print("Showing details for \(user.email)")
+    }
+
+    func showListOfUsers() {
+        print("show list of users")
     }
 
     private lazy var userRepository: UserRepository = {
