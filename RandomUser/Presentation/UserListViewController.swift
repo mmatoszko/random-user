@@ -21,6 +21,8 @@ class UserListViewController: UIViewController {
 
     private var userListDelegate: UserListDelegate?
 
+    weak var coordinator: UserInformationCoordinating?
+
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,7 +37,13 @@ class UserListViewController: UIViewController {
 
     override func loadView() {
         dataSource = UserListDataSource()
-        userListDelegate = UserListDelegate()
+        userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
+            guard let user = self?.dataSource?.users[indexPath.row] else {
+                assertionFailure("Can't get user at index \(indexPath.row)")
+                return
+            }
+            self?.coordinator?.showUserDetails(user: user)
+        })
         collectionView.dataSource = dataSource
         collectionView.delegate = userListDelegate
         collectionView.backgroundColor = .green
