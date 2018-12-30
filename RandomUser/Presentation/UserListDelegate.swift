@@ -10,6 +10,18 @@ import UIKit
 
 final class UserListDelegate: NSObject, UICollectionViewDelegateFlowLayout {
 
+    typealias CellSelectionCallback = (IndexPath) -> Void
+
+    private let cellSelectionCallback: CellSelectionCallback
+
+    init(cellSelectionCallback: @escaping CellSelectionCallback) {
+        self.cellSelectionCallback = cellSelectionCallback
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        cellSelectionCallback(indexPath)
+    }
+
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
