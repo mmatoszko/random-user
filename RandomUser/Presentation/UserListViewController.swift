@@ -15,8 +15,16 @@ class UserListViewController: UIViewController {
 
     private var userRepository: UserRepository
 
+    private var collectionView: UserListCollectionView
+
+    private var dataSource: UserListDataSource?
+
+    private var userListDelegate: UserListDelegate?
+
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
+        let flowLayout = UICollectionViewFlowLayout()
+        collectionView = UserListCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -25,17 +33,27 @@ class UserListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        dataSource = UserListDataSource()
+        userListDelegate = UserListDelegate()
+        collectionView.dataSource = dataSource
+        collectionView.delegate = userListDelegate
+        collectionView.backgroundColor = .green
+        view = collectionView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         userRepository.getUsers()
-            .subscribe(onNext: { users in
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [weak self] users in
+                self?.dataSource?.users = users
+                self?.collectionView.reloadData()
                 print(users.count)
 
             }).disposed(by: disposeBag)
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
 
 }
 
