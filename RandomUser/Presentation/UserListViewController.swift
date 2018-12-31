@@ -38,6 +38,9 @@ class UserListViewController: UIViewController {
     override func loadView() {
         prepareUserListCollectionView(collectionView: collectionView)
         view = collectionView
+        assert(dataSource != nil)
+        assert(userListDelegate != nil)
+        assert(coordinator != nil)
     }
 
     private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
