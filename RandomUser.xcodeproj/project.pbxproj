@@ -11,6 +11,7 @@
 		D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77B21D30FD1005E0AC9 /* UserStore.swift */; };
 		D81CC77F21D42DC2005E0AC9 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */; };
 		D865E14921D973B7007F2C6A /* UserListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865E14821D973B7007F2C6A /* UserListDelegate.swift */; };
+		D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865E14A21D9988F007F2C6A /* Kingfisher.framework */; };
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
@@ -50,6 +51,7 @@
 		D81CC77B21D30FD1005E0AC9 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		D865E14821D973B7007F2C6A /* UserListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDelegate.swift; sourceTree = "<group>"; };
+		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */,
 				D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */,
 				D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */,
 			);
@@ -213,6 +216,7 @@
 		D8BA533921D0528000B987A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D865E14A21D9988F007F2C6A /* Kingfisher.framework */,
 				D87EE55421D13B090076195F /* RxCocoa.framework */,
 				D8BA533A21D0528100B987A8 /* RxSwift.framework */,
 			);
@@ -356,12 +360,14 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
