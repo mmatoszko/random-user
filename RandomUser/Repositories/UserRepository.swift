@@ -11,12 +11,13 @@ import RxSwift
 
 final class UserRepository {
 
-    private var restApi: RestApi
+    typealias RemoteUsersCallback = () -> Observable<[User]>
+    private var remoteUsersCallback: RemoteUsersCallback
 
     private var userStore: UserPersisting
 
-    init(restApi: RestApi, userStore: UserPersisting) {
-        self.restApi = restApi
+    init(remoteUsersCallback: @escaping RemoteUsersCallback, userStore: UserPersisting) {
+        self.remoteUsersCallback = remoteUsersCallback
         self.userStore = userStore
     }
 
@@ -43,7 +44,7 @@ final class UserRepository {
      Updates the list of the users from the remote and persists it.
      */
     func getFreshUsers() -> Observable<[User]> {
-        return restApi.getUsers()
+        return remoteUsersCallback()
             .do(onNext: { [userStore] users in
                 userStore.persistAsync(users: users)
             })

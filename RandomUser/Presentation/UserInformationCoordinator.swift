@@ -38,10 +38,11 @@ final class UserInformationCoordinator: UserInformationCoordinating {
     }
 
     private lazy var userRepository: UserRepository = {
-        let restApi = createRestApi()
         let userStore = createUserStore()
-        return UserRepository(restApi: restApi, userStore: userStore)
+        return UserRepository(remoteUsersCallback: restApi.getUsers, userStore: userStore)
     }()
+
+    private lazy var restApi: RestApi = createRestApi()
 }
 
 private func createRestApi() -> RestApi {
