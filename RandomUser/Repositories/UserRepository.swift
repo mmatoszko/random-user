@@ -13,9 +13,9 @@ final class UserRepository {
 
     private var restApi: RestApi
 
-    private var userStore: UserStore
+    private var userStore: UserPersisting
 
-    init(restApi: RestApi, userStore: UserStore) {
+    init(restApi: RestApi, userStore: UserPersisting) {
         self.restApi = restApi
         self.userStore = userStore
     }

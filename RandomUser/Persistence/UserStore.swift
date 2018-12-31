@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol UserPersising {
+protocol UserPersisting {
 
     typealias UsersCallback = ([User]) -> Void
 
@@ -18,7 +18,7 @@ protocol UserPersising {
 
 }
 
-final class UserStore: UserPersising {
+final class UserStore: UserPersisting {
 
     private let container: NSPersistentContainer
 
