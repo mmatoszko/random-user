@@ -26,8 +26,8 @@ final class UserListDelegate: NSObject, UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         // not everyone likes the magic numbers, but they fit well in this use case
-        let width = UIScreen.main.bounds.width / 2 - 5
-        return CGSize(width: width, height: 150)
+        let width = UIScreen.main.bounds.width / 3 - 7
+        return CGSize(width: width, height: 120)
     }
 
 }
