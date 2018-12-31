@@ -17,11 +17,9 @@ protocol UserInformationCoordinating: class {
 final class UserInformationCoordinator: UserInformationCoordinating {
 
     private let window: UIWindow
-    private let userStore: UserStore
 
     init(window: UIWindow) {
         self.window = window
-        self.userStore = createUserStore()
     }
 
     func start() {
