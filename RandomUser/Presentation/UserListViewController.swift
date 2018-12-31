@@ -36,6 +36,11 @@ class UserListViewController: UIViewController {
     }
 
     override func loadView() {
+        prepareUserListCollectionView(collectionView: collectionView)
+        view = collectionView
+    }
+
+    private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
         dataSource = UserListDataSource()
         userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
             guard let user = self?.dataSource?.users[indexPath.row] else {
@@ -47,7 +52,6 @@ class UserListViewController: UIViewController {
         collectionView.dataSource = dataSource
         collectionView.delegate = userListDelegate
         collectionView.backgroundColor = .green
-        view = collectionView
     }
 
     override func viewDidLoad() {
