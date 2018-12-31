@@ -63,11 +63,32 @@ class UserListViewController: UIViewController {
         userRepository.getUsers()
             .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [weak self] users in
-                self?.dataSource?.users = users
-                self?.collectionView.reloadData()
-                print(users.count)
+                self?.loadNewUsers(users: users)
 
             }).disposed(by: disposeBag)
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self,
+                                 action: #selector(refreshOptions(sender:)),
+                                 for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+
+    @objc private func refreshOptions(sender: UIRefreshControl) {
+        userRepository.getFreshUsers()
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [weak self] users in
+                self?.loadNewUsers(users: users)
+                sender.endRefreshing()
+
+            }).disposed(by: disposeBag)
+    }
+
+    private func loadNewUsers(users: [User]) {
+        dataSource?.users = users
+        collectionView.reloadData()
+        print("just loaded \(users.count) users")
     }
 
 }
