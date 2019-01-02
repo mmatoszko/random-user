@@ -10,6 +10,8 @@ import UIKit
 
 final class UserListDataSource: NSObject, UICollectionViewDataSource {
 
+    // MARK: - UICollectionViewDataSource Delegate
+
     var users: [User] = []
 
     /** Presentation state of the DataSource. */

@@ -10,6 +10,8 @@ import UIKit
 
 final class UserListDelegate: NSObject, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - UICollectionViewDelegateFlowLayout Delegate
+
     typealias CellSelectionCallback = (IndexPath) -> Void
 
     private let cellSelectionCallback: CellSelectionCallback
