@@ -11,7 +11,7 @@ import RxSwift
 
 class UserListViewController: UIViewController {
 
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
 
     private var userRepository: UserRepository
 
