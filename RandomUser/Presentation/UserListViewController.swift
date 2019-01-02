@@ -68,14 +68,17 @@ class UserListViewController: UIViewController {
                 self?.loadNewUsers(users: users)
 
             }).disposed(by: disposeBag)
+        setupRefreshControl()
+        setupSearchController()
+    }
 
+    private func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self,
                                  action: #selector(refreshOptions(sender:)),
                                  for: .valueChanged)
         collectionView.refreshControl = refreshControl
-        setupSearchController()
     }
 
     private func setupSearchController() {
