@@ -18,14 +18,19 @@ final class UserInformationCoordinator: UserInformationCoordinating {
 
     private let window: UIWindow
 
+    private var navigationController: UINavigationController?
+
     init(window: UIWindow) {
         self.window = window
     }
 
     func start() {
+        assert(navigationController == nil, "Start method should be called only during `didFinishLaunchingWithOptions`")
         let userListViewController = UserListViewController(userRepository: userRepository)
         userListViewController.coordinator = self
-        window.rootViewController = userListViewController
+        navigationController = UINavigationController(rootViewController: userListViewController)
+
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 
