@@ -27,7 +27,6 @@
 		D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E53E21CD6AC00005B871 /* RandomUser.xcdatamodeld */; };
 		D8B0E54221CD6AC20005B871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B0E54121CD6AC20005B871 /* Assets.xcassets */; };
 		D8B0E54521CD6AC20005B871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8B0E54321CD6AC20005B871 /* LaunchScreen.storyboard */; };
-		D8B0E55021CD6AC20005B871 /* RandomUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E54F21CD6AC20005B871 /* RandomUserTests.swift */; };
 		D8B0E55B21CD6AC20005B871 /* RandomUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */; };
 		D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
@@ -72,7 +71,6 @@
 		D8B0E54421CD6AC20005B871 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8B0E54621CD6AC20005B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B0E54B21CD6AC20005B871 /* RandomUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8B0E54F21CD6AC20005B871 /* RandomUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserTests.swift; sourceTree = "<group>"; };
 		D8B0E55121CD6AC20005B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B0E55621CD6AC20005B871 /* RandomUserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserUITests.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			children = (
 				D87EE55D21D1C38A0076195F /* Model */,
 				D888975421DA590B0033FA26 /* Repositories */,
-				D8B0E54F21CD6AC20005B871 /* RandomUserTests.swift */,
 				D8B0E55121CD6AC20005B871 /* Info.plist */,
 			);
 			path = RandomUserTests;
@@ -448,7 +445,6 @@
 			files = (
 				D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */,
 				D888975621DA592C0033FA26 /* UserRepositoryTests.swift in Sources */,
-				D8B0E55021CD6AC20005B871 /* RandomUserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
