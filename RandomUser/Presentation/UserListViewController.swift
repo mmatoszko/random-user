@@ -101,8 +101,12 @@ class UserListViewController: UIViewController {
 
     private func loadNewUsers(users: [User]) {
         dataSource?.users = users
-        collectionView.reloadData()
+        filterAndReloadData()
         print("just loaded \(users.count) users")
+    }
+
+    private func filterAndReloadData() {
+        updateSearchResults(for: searchController)
     }
 
 }
