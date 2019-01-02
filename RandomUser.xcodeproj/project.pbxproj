@@ -134,6 +134,18 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		D8691E8021DD74AF0074A522 /* User List */ = {
+			isa = PBXGroup;
+			children = (
+				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
+				D88E23D921D53A1A0098EA37 /* UserListDataSource.swift */,
+				D865E14821D973B7007F2C6A /* UserListDelegate.swift */,
+				D88E23DB21D53E2D0098EA37 /* UserListCollectionView.swift */,
+				D88E23DD21D593310098EA37 /* UserCollectionViewCell.swift */,
+			);
+			path = "User List";
+			sourceTree = "<group>";
+		};
 		D87EE55A21D13FBF0076195F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,12 +173,8 @@
 		D88E23D621D523300098EA37 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D8B0E53921CD6AC00005B871 /* UserListViewController.swift */,
+				D8691E8021DD74AF0074A522 /* User List */,
 				D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */,
-				D88E23D921D53A1A0098EA37 /* UserListDataSource.swift */,
-				D865E14821D973B7007F2C6A /* UserListDelegate.swift */,
-				D88E23DB21D53E2D0098EA37 /* UserListCollectionView.swift */,
-				D88E23DD21D593310098EA37 /* UserCollectionViewCell.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
