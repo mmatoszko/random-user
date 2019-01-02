@@ -21,6 +21,8 @@ class UserListViewController: UIViewController {
 
     private var userListDelegate: UserListDelegate?
 
+    private let searchController = UISearchController(searchResultsController: nil)
+
     weak var coordinator: UserInformationCoordinating?
 
     init(userRepository: UserRepository) {
@@ -73,6 +75,15 @@ class UserListViewController: UIViewController {
                                  action: #selector(refreshOptions(sender:)),
                                  for: .valueChanged)
         collectionView.refreshControl = refreshControl
+        setupSearchController()
+    }
+
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Users"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 
     @objc private func refreshOptions(sender: UIRefreshControl) {
@@ -93,3 +104,35 @@ class UserListViewController: UIViewController {
 
 }
 
+extension UserListViewController: UISearchResultsUpdating {
+
+    // MARK: - UISearchResultsUpdating Delegate
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let dataSource = dataSource else {
+            assertionFailure("No data source.")
+            return
+        }
+        dataSource.presentationType = listPresentationType(for: searchController, and: dataSource)
+        collectionView.reloadData()
+    }
+
+    private func listPresentationType(for searchController: UISearchController, and dataSource: UserListDataSource) -> PresentationType {
+        guard searchController.isActive,
+            let searchText = searchController.searchBar.text else {
+                return .normal
+        }
+        // We could also add a custom operator for function composition here, but not everyone likes that
+        let filteredUsers = dataSource.users.filter {
+            return filterFunction(user: $0, searchText: searchText)
+        }
+        return .filtered(filteredUsers: filteredUsers)
+    }
+}
+
+private func filterFunction(user: User, searchText: String) -> Bool {
+    if searchText.isEmpty { return true }
+    let name = user.name
+    let fullName = "\(name.title) \(name.first) \(name.last)"
+    return fullName.lowercased().contains(searchText.lowercased())
+}
