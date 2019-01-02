@@ -12,15 +12,33 @@ final class UserListDataSource: NSObject, UICollectionViewDataSource {
 
     var users: [User] = []
 
+    /** Presentation state of the DataSource. */
+    var presentationType: PresentationType = .normal
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        return usersFor(presentationType: presentationType).count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as! UserCollectionViewCell
-        let user = users[indexPath.row]
+        let user = usersFor(presentationType: presentationType)[indexPath.row]
         cell.render(user: user)
         return cell
     }
 
+    private func usersFor(presentationType: PresentationType) -> [User] {
+        switch presentationType {
+        case .normal:
+            return users
+        case .filtered(filteredUsers: let filteredUsers):
+            return filteredUsers
+        }
+    }
+
+}
+
+/** Representation of the presentation type used in the `UserListViewController`. */
+enum PresentationType {
+    case normal
+    case filtered(filteredUsers: [User])
 }
