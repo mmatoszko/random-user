@@ -30,6 +30,7 @@ class UserListViewController: UIViewController {
         let flowLayout = UICollectionViewFlowLayout()
         collectionView = UserListCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(nibName: nil, bundle: nil)
+        title = "Random Users"
     }
 
     @available(*, unavailable)
@@ -74,7 +75,7 @@ class UserListViewController: UIViewController {
 
     private func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.attributedTitle = NSAttributedString(string: "Refreshing users")
         refreshControl.addTarget(self,
                                  action: #selector(refreshOptions(sender:)),
                                  for: .valueChanged)
