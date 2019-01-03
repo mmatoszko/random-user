@@ -35,7 +35,8 @@ final class UserInformationCoordinator: UserInformationCoordinating {
     }
 
     func showUserDetails(user: User) {
-        print("Showing details for \(user.email)")
+        let userDetailsViewController = UserDetailsViewController(user: user)
+        navigationController?.pushViewController(userDetailsViewController, animated: true)
     }
 
     func showListOfUsers() {
