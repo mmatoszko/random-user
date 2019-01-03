@@ -12,7 +12,11 @@ struct Users: Decodable {
     let results: [User]
 }
 
-struct User: Decodable {
+protocol FullName {
+    var fullName: String { get }
+}
+
+struct User: Decodable, FullName {
     let name: Name
     let email: String
     let login: Login

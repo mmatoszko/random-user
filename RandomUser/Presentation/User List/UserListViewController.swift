@@ -131,15 +131,13 @@ extension UserListViewController: UISearchResultsUpdating {
                 return .normal
         }
         // We could also add a custom operator for function composition here, but not everyone likes that
-        let userFilter = filterFunction(searchText: searchText)
+        let userFilter: (User) -> Bool = filterFunction(searchText: searchText)
         let filteredUsers = dataSource.users.filter(userFilter)
         return .filtered(filteredUsers: filteredUsers)
     }
 }
 
-private func filterFunction(searchText: String) -> (User) -> Bool {
+func filterFunction<T: FullName>(searchText: String) -> (T) -> Bool {
     if searchText.isEmpty { return { _ in return true } }
-    return { user in
-        return user.fullName.lowercased().contains(searchText.lowercased())
-    }
+    return { return $0.fullName.lowercased().contains(searchText.lowercased()) }
 }
