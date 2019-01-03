@@ -14,6 +14,7 @@
 		D82DD74621DA64C0006000BD /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82DD74521DA64C0006000BD /* RxBlocking.framework */; };
 		D865E14921D973B7007F2C6A /* UserListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865E14821D973B7007F2C6A /* UserListDelegate.swift */; };
 		D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865E14A21D9988F007F2C6A /* Kingfisher.framework */; };
+		D8691E8221DD7BA00074A522 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */; };
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
@@ -55,6 +56,7 @@
 		D82DD74521DA64C0006000BD /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		D865E14821D973B7007F2C6A /* UserListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDelegate.swift; sourceTree = "<group>"; };
 		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = "User List";
 			sourceTree = "<group>";
 		};
+		D8691E8321DE5BA10074A522 /* User Details */ = {
+			isa = PBXGroup;
+			children = (
+				D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */,
+			);
+			path = "User Details";
+			sourceTree = "<group>";
+		};
 		D87EE55A21D13FBF0076195F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +181,7 @@
 		D88E23D621D523300098EA37 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D8691E8321DE5BA10074A522 /* User Details */,
 				D8691E8021DD74AF0074A522 /* User List */,
 				D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */,
 			);
@@ -426,6 +437,7 @@
 			files = (
 				D88E23D821D524000098EA37 /* UserInformationCoordinator.swift in Sources */,
 				D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */,
+				D8691E8221DD7BA00074A522 /* UserDetailsViewController.swift in Sources */,
 				D8B0E54021CD6AC00005B871 /* RandomUser.xcdatamodeld in Sources */,
 				D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */,
 				D88E23DA21D53A1A0098EA37 /* UserListDataSource.swift in Sources */,
