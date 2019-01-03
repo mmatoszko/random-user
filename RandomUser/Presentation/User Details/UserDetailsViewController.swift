@@ -54,8 +54,7 @@ private func createViews(for user: User) -> [UIView] {
 
     let userNameLabel = UILabel()
     userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-    let name = user.name
-    userNameLabel.text = "\(name.title) \(name.first) \(name.last)"
+    userNameLabel.text = user.fullName
 
     let emailLabel = UILabel()
     emailLabel.translatesAutoresizingMaskIntoConstraints = false

@@ -33,4 +33,8 @@ struct User: Decodable {
         let medium: URL
         let thumbnail: URL
     }
+
+    var fullName: String {
+        return "\(name.title) \(name.first) \(name.last)"
+    }
 }

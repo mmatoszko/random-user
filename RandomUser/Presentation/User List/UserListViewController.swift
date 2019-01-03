@@ -140,8 +140,6 @@ extension UserListViewController: UISearchResultsUpdating {
 private func filterFunction(searchText: String) -> (User) -> Bool {
     if searchText.isEmpty { return { _ in return true } }
     return { user in
-        let name = user.name
-        let fullName = "\(name.title) \(name.first) \(name.last)"
-        return fullName.lowercased().contains(searchText.lowercased())
+        return user.fullName.lowercased().contains(searchText.lowercased())
     }
 }

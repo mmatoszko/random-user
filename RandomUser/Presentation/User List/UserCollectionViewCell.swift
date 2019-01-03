@@ -42,10 +42,8 @@ final class UserCollectionViewCell: UICollectionViewCell {
 
     func render(user: User) {
         imageView.kf.setImage(with: user.picture.medium)
-        let name = user.name
         // This could be done also in a properly tested view model
-        let fullName = "\(name.title) \(name.first) \(name.last)"
-        nameLabel.text = fullName
+        nameLabel.text = user.fullName
     }
 
     override func prepareForReuse() {
