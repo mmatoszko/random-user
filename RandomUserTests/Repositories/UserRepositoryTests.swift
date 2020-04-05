@@ -18,20 +18,22 @@ class UserRepositoryTests: XCTestCase {
         let userStore = TestUserStore()
         userStore.persistAsync(users: [User(uuid: "first")])
         let repository = UserRepository(remoteUsersCallback: testRemoteUsersCallback, userStore: userStore)
-        XCTAssertEqual("first", try repository.getUsers().toBlocking().single().first?.login.uuid)
+        XCTAssertEqual("first", try repository.getUsers(count: 42).toBlocking().single().first?.login.uuid)
     }
 
     func testItShouldProvideRemoteUsersWhenThereAreNoPersistedUsers() {
         let userStore = TestUserStore()
         let repository = UserRepository(remoteUsersCallback: testRemoteUsersCallback, userStore: userStore)
-        XCTAssertEqual("remote", try repository.getUsers().toBlocking().single().first?.login.uuid)
+        XCTAssertEqual("remote", try repository.getUsers(count: 42).toBlocking().single().first?.login.uuid)
     }
 
     func testItShouldUpdatePersistedUsersWhenThereAreNoPersistedUsers() {
         let userStore = TestUserStore()
-        let remoteCallback = { return Observable.just([User(uuid: "remote user")]) }
+        let remoteCallback: (Int) -> Observable<[User]> = { _ in
+            return Observable.just([User(uuid: "remote user")])
+        }
         let repository = UserRepository(remoteUsersCallback: remoteCallback, userStore: userStore)
-        guard let remote = try? repository.getUsers().toBlocking().single() else {
+        guard let remote = try? repository.getUsers(count: 42).toBlocking().single() else {
             return XCTFail("no remote users")
         }
         XCTAssertEqual("remote user", remote.first?.login.uuid)
@@ -47,14 +49,16 @@ class UserRepositoryTests: XCTestCase {
         let userStore = TestUserStore()
         userStore.persistAsync(users: [User(uuid: "first")])
         let repository = UserRepository(remoteUsersCallback: testRemoteUsersCallback, userStore: userStore)
-        XCTAssertEqual("remote", try repository.getFreshUsers().toBlocking().single().first?.login.uuid)
+        XCTAssertEqual("remote", try repository.getFreshUsers(count: 42).toBlocking().single().first?.login.uuid)
     }
 
     func testGettingFreshUsersShouldUpdatePersistedUsers() {
         let userStore = TestUserStore()
-        let remoteCallback = { return Observable.just([User(uuid: "fresh user")]) }
+        let remoteCallback: (Int) -> Observable<[User]> = { _ in
+            return Observable.just([User(uuid: "fresh user")])
+        }
         let repository = UserRepository(remoteUsersCallback: remoteCallback, userStore: userStore)
-        guard let remote = try? repository.getFreshUsers().toBlocking().single() else {
+        guard let remote = try? repository.getFreshUsers(count: 42).toBlocking().single() else {
             return XCTFail("no fresh remote users")
         }
         XCTAssertEqual("fresh user", remote.first?.login.uuid)
@@ -81,7 +85,7 @@ private class TestUserStore: UserPersisting {
     }
 }
 
-private func testRemoteUsersCallback() -> Observable<[User]> {
+private func testRemoteUsersCallback(count: Int) -> Observable<[User]> {
     return Observable.just([User(uuid: "remote")])
 }
 
