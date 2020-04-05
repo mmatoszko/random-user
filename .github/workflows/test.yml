@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
+    - uses: actions/cache@v1
+      id: carthage-cache
+      with:
+        path: Carthage
+        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
     - name: Carthage
-      run: |
-       carthage checkout
-       carthage build --platform ios
+      if: steps.carthage-cache.outputs.cache-hit != 'true'
+      run: carthage bootstrap --no-use-binaries --platform iOS --cache-builds
     - name: Run unit tests with iPhone 8
       run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty && exit ${PIPESTATUS[0]}
