@@ -365,13 +365,16 @@
 				TargetAttributes = {
 					D8B0E53321CD6AC00005B871 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 					};
 					D8B0E54A21CD6AC20005B871 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						TestTargetID = D8B0E53321CD6AC00005B871;
 					};
 					D8B0E55521CD6AC20005B871 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						TestTargetID = D8B0E53321CD6AC00005B871;
 					};
 				};
@@ -667,7 +670,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -688,7 +691,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUser;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -711,7 +714,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RandomUser.app/RandomUser";
 			};
@@ -735,7 +738,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUserTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RandomUser.app/RandomUser";
 			};
@@ -754,7 +757,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUserUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RandomUser;
 			};
@@ -773,7 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.matoszko.RandomUserUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = RandomUser;
 			};
