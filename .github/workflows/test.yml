@@ -18,4 +18,4 @@ jobs:
        carthage checkout
        carthage build --platform ios
     - name: Run unit tests with iPhone 8
-      run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 8"
+      run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty && exit ${PIPESTATUS[0]}
