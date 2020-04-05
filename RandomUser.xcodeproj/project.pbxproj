@@ -10,6 +10,8 @@
 		D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77821D30AD4005E0AC9 /* RestApi.swift */; };
 		D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77B21D30FD1005E0AC9 /* UserStore.swift */; };
 		D81CC77F21D42DC2005E0AC9 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */; };
+		D81DFA04243A4CC800A0E733 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81DFA00243A4C6600A0E733 /* RxRelay.framework */; };
+		D81DFA05243A4CC800A0E733 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D81DFA00243A4C6600A0E733 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D82DD74421DA64C0006000BD /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
 		D82DD74621DA64C0006000BD /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82DD74521DA64C0006000BD /* RxBlocking.framework */; };
 		D865E14921D973B7007F2C6A /* UserListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865E14821D973B7007F2C6A /* UserListDelegate.swift */; };
@@ -50,10 +52,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D81DFA06243A4CC800A0E733 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D81DFA05243A4CC800A0E733 /* RxRelay.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D81CC77821D30AD4005E0AC9 /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		D81CC77B21D30FD1005E0AC9 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		D81DFA00243A4C6600A0E733 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		D82DD74521DA64C0006000BD /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		D865E14821D973B7007F2C6A /* UserListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDelegate.swift; sourceTree = "<group>"; };
 		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -87,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D81DFA04243A4CC800A0E733 /* RxRelay.framework in Frameworks */,
 				D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */,
 				D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */,
 				D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */,
@@ -267,6 +285,7 @@
 		D8BA533921D0528000B987A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D81DFA00243A4C6600A0E733 /* RxRelay.framework */,
 				D82DD74521DA64C0006000BD /* RxBlocking.framework */,
 				D865E14A21D9988F007F2C6A /* Kingfisher.framework */,
 				D87EE55421D13B090076195F /* RxCocoa.framework */,
@@ -286,6 +305,7 @@
 				D8B0E53121CD6AC00005B871 /* Frameworks */,
 				D8B0E53221CD6AC00005B871 /* Resources */,
 				D8BA533C21D0530100B987A8 /* ShellScript */,
+				D81DFA06243A4CC800A0E733 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
