@@ -11,7 +11,7 @@ import RxSwift
 
 final class UserRepository {
 
-    typealias RemoteUsersCallback = () -> Observable<[User]>
+    typealias RemoteUsersCallback = (Int) -> Observable<[User]>
     private var remoteUsersCallback: RemoteUsersCallback
 
     private var userStore: UserPersisting
@@ -31,20 +31,20 @@ final class UserRepository {
         }
     }
 
-    func getUsers() -> Observable<[User]> {
+    func getUsers(count: Int) -> Observable<[User]> {
         return persistedUsers.flatMapLatest { [weak self] users -> Observable<[User]> in
             guard users.isEmpty, let strongSelf = self else {
                 return Observable.just(users)
             }
-            return strongSelf.getFreshUsers()
+            return strongSelf.getFreshUsers(count: count)
         }
     }
 
     /**
      Updates the list of the users from the remote and persists it.
      */
-    func getFreshUsers() -> Observable<[User]> {
-        return remoteUsersCallback()
+    func getFreshUsers(count: Int) -> Observable<[User]> {
+        return remoteUsersCallback(count)
             .do(onNext: { [userStore] users in
                 userStore.persistAsync(users: users)
             })

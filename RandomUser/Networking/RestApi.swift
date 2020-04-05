@@ -13,7 +13,7 @@ import RxCocoa
 
 final class RestApi {
 
-    private let apiUrl = URL(string: "https://randomuser.me/api/?results=150")!
+    private let baseURL = URL(string: "https://randomuser.me/")!
 
     private let urlSession: URLSession
 
@@ -21,12 +21,32 @@ final class RestApi {
         self.urlSession = urlSession
     }
 
-    func getUsers() -> Observable<[User]> {
-        let request = URLRequest(url: apiUrl)
+    func getUsers(count: Int) -> Observable<[User]> {
+        let endpoint = "api"
+        guard let pathUrl = URL(string: endpoint, relativeTo: baseURL) else {
+            return .error(ApiError.unableToCreatePath)
+        }
+
+        let params = ["results": String(count)]
+        let queryItems = params.map(URLQueryItem.init)
+        guard var components = URLComponents(url: pathUrl, resolvingAgainstBaseURL: true) else {
+            return .error(ApiError.unableToCreateUrlWithParams(params))
+        }
+        components.queryItems = queryItems
+        guard let url = components.url else {
+            return .error(ApiError.unableToCreateUrlWithParams(params))
+        }
+
+        let request = URLRequest(url: url)
         return urlSession.rx.data(request: request).map { data in
 
             let users = try JSONDecoder().decode(Users.self, from: data)
             return users.results
         }
     }
+}
+
+private enum ApiError: Error {
+    case unableToCreatePath
+    case unableToCreateUrlWithParams([String: String])
 }

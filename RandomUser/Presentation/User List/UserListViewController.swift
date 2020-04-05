@@ -11,6 +11,7 @@ import RxSwift
 
 class UserListViewController: UIViewController {
 
+    private let userCount = 15
     private let disposeBag = DisposeBag()
 
     private var userRepository: UserRepository
@@ -63,7 +64,7 @@ class UserListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userRepository.getUsers()
+        userRepository.getUsers(count: userCount)
             .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [weak self] users in
                 self?.loadNewUsers(users: users)
@@ -91,7 +92,7 @@ class UserListViewController: UIViewController {
     }
 
     @objc private func refreshOptions(sender: UIRefreshControl) {
-        userRepository.getFreshUsers()
+        userRepository.getFreshUsers(count: userCount)
             .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [weak self] users in
                 self?.loadNewUsers(users: users)
