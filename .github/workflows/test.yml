@@ -23,5 +23,5 @@ jobs:
     - name: Carthage
       if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --no-use-binaries --platform iOS --cache-builds
-    - name: Run unit tests with iPhone 8
-      run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 8" | xcpretty && exit ${PIPESTATUS[0]}
+    - name: Run unit tests with iPhone 11
+      run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 11" | xcpretty && exit ${PIPESTATUS[0]}
