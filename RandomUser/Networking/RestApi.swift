@@ -38,12 +38,13 @@ final class RestApi {
         }
 
         let request = URLRequest(url: url)
-        return urlSession.rx.data(request: request).map { data in
-
-            let users = try JSONDecoder().decode(Users.self, from: data)
-            return users.results
-        }
+        return urlSession.rx.data(request: request).map(decodedUsers)
     }
+}
+
+private func decodedUsers(data: Data) throws -> [User] {
+    let users = try JSONDecoder().decode(Users.self, from: data)
+    return users.results
 }
 
 private enum ApiError: Error {
