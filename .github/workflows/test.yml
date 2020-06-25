@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
 env:
-  DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+  DEVELOPER_DIR: /Applications/Xcode_11.5.app/Contents/Developer
 
 jobs:
   test:
@@ -19,7 +19,7 @@ jobs:
       id: carthage-cache
       with:
         path: Carthage
-        key: ${{ runner.os }}-xcode-11-4-${{ hashFiles('**/Cartfile.resolved') }}
+        key: ${{ runner.os }}-xcode-11-5-${{ hashFiles('**/Cartfile.resolved') }}
     - name: Carthage
       if: steps.carthage-cache.outputs.cache-hit != 'true'
       run: carthage bootstrap --no-use-binaries --platform iOS --cache-builds
