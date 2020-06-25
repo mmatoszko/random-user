@@ -11,7 +11,6 @@ import UIKit
 
 protocol UserInformationCoordinating: class {
     func showUserDetails(user: User)
-    func showListOfUsers()
 }
 
 final class UserInformationCoordinator: UserInformationCoordinating {
@@ -37,10 +36,6 @@ final class UserInformationCoordinator: UserInformationCoordinating {
     func showUserDetails(user: User) {
         let userDetailsViewController = UserDetailsViewController(user: user)
         navigationController?.pushViewController(userDetailsViewController, animated: true)
-    }
-
-    func showListOfUsers() {
-        print("show list of users")
     }
 
     private lazy var userRepository: UserRepository = {
