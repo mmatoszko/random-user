@@ -133,11 +133,11 @@ private func listPresentationType(for searchController: UISearchController, and 
             return .normal
     }
     // We could also add a custom operator for function composition here, but not everyone likes that
-    let userFilter: (User) -> Bool = filterFunction(searchText: searchText)
+    let userFilter: (User) -> Bool = createUsersFilter(searchText: searchText)
     return .filtered(predicate: userFilter)
 }
 
-func filterFunction<T: FullName>(searchText: String) -> (T) -> Bool {
+func createUsersFilter<T: FullName>(searchText: String) -> (T) -> Bool {
     if searchText.isEmpty { return { _ in return true } }
     return { return $0.fullName.lowercased().contains(searchText.lowercased()) }
 }
