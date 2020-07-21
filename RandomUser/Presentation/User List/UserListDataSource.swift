@@ -10,37 +10,45 @@ import UIKit
 
 final class UserListDataSource: NSObject, UICollectionViewDataSource {
 
-    // MARK: - UICollectionViewDataSource Delegate
-
-    var users: [User] = []
+    private var users: [User] = []
+    var visibleUsers: [User] = []
 
     /** Presentation state of the DataSource. */
-    var presentationType: PresentationType = .normal
+    var presentationType: PresentationType = .normal {
+        didSet { reloadVisibleUsers(for: presentationType) }
+    }
+
+    func updateUsers(users: [User]) {
+        self.users = users
+    }
+
+    // MARK: - UICollectionViewDataSource Delegate
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return usersFor(presentationType: presentationType).count
+        return visibleUsers.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as! UserCollectionViewCell
-        let user = usersFor(presentationType: presentationType)[indexPath.row]
+        let user = visibleUsers[indexPath.row]
         cell.render(user: user)
         return cell
     }
 
-    private func usersFor(presentationType: PresentationType) -> [User] {
+    // MARK: - Private Methods
+
+    private func reloadVisibleUsers(for presentationType: PresentationType) {
         switch presentationType {
         case .normal:
-            return users
-        case .filtered(filteredUsers: let filteredUsers):
-            return filteredUsers
+            self.visibleUsers = users
+        case .filtered(let predicate):
+            self.visibleUsers = users.filter(predicate)
         }
     }
-
 }
 
 /** Representation of the presentation type used in the `UserListViewController`. */
 enum PresentationType {
     case normal
-    case filtered(filteredUsers: [User])
+    case filtered(predicate: (User) -> Bool)
 }

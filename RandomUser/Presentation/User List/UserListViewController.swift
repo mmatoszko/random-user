@@ -14,7 +14,7 @@ class UserListViewController: UIViewController {
     private let userCount = 15
     private let disposeBag = DisposeBag()
 
-    private var userRepository: UserRepository
+    private let userRepository: UserRepository
 
     private var collectionView: UserListCollectionView
 
@@ -50,7 +50,7 @@ class UserListViewController: UIViewController {
     private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
         dataSource = UserListDataSource()
         userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
-            guard let user = self?.dataSource?.users[indexPath.row] else {
+            guard let user = self?.dataSource?.visibleUsers[indexPath.row] else {
                 assertionFailure("Can't get user at index \(indexPath.row)")
                 return
             }
@@ -102,7 +102,7 @@ class UserListViewController: UIViewController {
     }
 
     private func loadNewUsers(users: [User]) {
-        dataSource?.users = users
+        dataSource?.updateUsers(users: users)
         filterAndReloadData()
         print("just loaded \(users.count) users")
     }
@@ -125,17 +125,16 @@ extension UserListViewController: UISearchResultsUpdating {
         dataSource.presentationType = listPresentationType(for: searchController, and: dataSource)
         collectionView.reloadData()
     }
+}
 
-    private func listPresentationType(for searchController: UISearchController, and dataSource: UserListDataSource) -> PresentationType {
-        guard searchController.isActive,
-            let searchText = searchController.searchBar.text else {
-                return .normal
-        }
-        // We could also add a custom operator for function composition here, but not everyone likes that
-        let userFilter: (User) -> Bool = filterFunction(searchText: searchText)
-        let filteredUsers = dataSource.users.filter(userFilter)
-        return .filtered(filteredUsers: filteredUsers)
+private func listPresentationType(for searchController: UISearchController, and dataSource: UserListDataSource) -> PresentationType {
+    guard searchController.isActive,
+        let searchText = searchController.searchBar.text else {
+            return .normal
     }
+    // We could also add a custom operator for function composition here, but not everyone likes that
+    let userFilter: (User) -> Bool = filterFunction(searchText: searchText)
+    return .filtered(predicate: userFilter)
 }
 
 func filterFunction<T: FullName>(searchText: String) -> (T) -> Bool {
