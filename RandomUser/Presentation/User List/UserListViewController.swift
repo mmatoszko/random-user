@@ -65,11 +65,11 @@ class UserListViewController: UIViewController {
         super.viewDidLoad()
 
         userRepository.getUsers(count: userCount)
-            .observeOn(ConcurrentMainScheduler.instance)
-            .subscribe(onNext: { [weak self] users in
+            .asDriver(onErrorJustReturn: [])
+            .drive(onNext: { [weak self] users in
                 self?.loadNewUsers(users: users)
-
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
         setupRefreshControl()
         setupSearchController()
     }
@@ -93,12 +93,12 @@ class UserListViewController: UIViewController {
 
     @objc private func refreshOptions(sender: UIRefreshControl) {
         userRepository.getFreshUsers(count: userCount)
-            .observeOn(ConcurrentMainScheduler.instance)
-            .subscribe(onNext: { [weak self] users in
+            .asDriver(onErrorJustReturn: [])
+            .drive(onNext: { [weak self] users in
                 self?.loadNewUsers(users: users)
                 sender.endRefreshing()
-
-            }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 
     private func loadNewUsers(users: [User]) {
