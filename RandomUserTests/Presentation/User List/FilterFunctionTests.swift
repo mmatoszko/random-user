@@ -14,17 +14,17 @@ class FilterFunctionTests: XCTestCase {
 
     func testFilteringWithEmptySearchText() {
 
-        let filterFunctionWithEmptyText: (Car) -> Bool = filterFunction(searchText: "")
+        let filterFunctionWithEmptyText: (Car) -> Bool = createUsersFilter(searchText: "")
         XCTAssertEqual(14, testObjects.filter(filterFunctionWithEmptyText).count)
     }
 
     func testFilteringForLowercase() {
-        let filterFunctionWithEmptyText: (Car) -> Bool = filterFunction(searchText: "m")
+        let filterFunctionWithEmptyText: (Car) -> Bool = createUsersFilter(searchText: "m")
         XCTAssertEqual(5, testObjects.filter(filterFunctionWithEmptyText).count)
     }
 
     func testFilteringForUppercase() {
-        let filterFunctionWithEmptyText: (Car) -> Bool = filterFunction(searchText: "M")
+        let filterFunctionWithEmptyText: (Car) -> Bool = createUsersFilter(searchText: "M")
         XCTAssertEqual(5, testObjects.filter(filterFunctionWithEmptyText).count)
     }
 }
