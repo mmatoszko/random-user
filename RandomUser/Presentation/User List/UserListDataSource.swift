@@ -20,6 +20,7 @@ final class UserListDataSource: NSObject, UICollectionViewDataSource {
 
     func updateUsers(users: [User]) {
         self.users = users
+        reloadVisibleUsers(for: presentationType)
     }
 
     // MARK: - UICollectionViewDataSource Delegate
