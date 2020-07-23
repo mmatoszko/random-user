@@ -18,6 +18,9 @@
 		D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865E14A21D9988F007F2C6A /* Kingfisher.framework */; };
 		D8691E8221DD7BA00074A522 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */; };
 		D8691E8721DEA7620074A522 /* FilterFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8621DEA7620074A522 /* FilterFunctionTests.swift */; };
+		D87CF84D24CA49D500AAB947 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */; };
+		D87CF84F24CA49FF00AAB947 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */; };
+		D87CF85124CA4B0400AAB947 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF85024CA4B0400AAB947 /* UserListRouter.swift */; };
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
@@ -76,6 +79,9 @@
 		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		D8691E8621DEA7620074A522 /* FilterFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFunctionTests.swift; sourceTree = "<group>"; };
+		D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
+		D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
+		D87CF85024CA4B0400AAB947 /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
 		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
@@ -162,6 +168,9 @@
 				D865E14821D973B7007F2C6A /* UserListDelegate.swift */,
 				D88E23DB21D53E2D0098EA37 /* UserListCollectionView.swift */,
 				D88E23DD21D593310098EA37 /* UserCollectionViewCell.swift */,
+				D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */,
+				D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */,
+				D87CF85024CA4B0400AAB947 /* UserListRouter.swift */,
 			);
 			path = "User List";
 			sourceTree = "<group>";
@@ -484,8 +493,11 @@
 				D8B0E53A21CD6AC00005B871 /* UserListViewController.swift in Sources */,
 				D88E23DA21D53A1A0098EA37 /* UserListDataSource.swift in Sources */,
 				D88E23DC21D53E2D0098EA37 /* UserListCollectionView.swift in Sources */,
+				D87CF84F24CA49FF00AAB947 /* UserListInteractor.swift in Sources */,
 				D81CC77F21D42DC2005E0AC9 /* UserRepository.swift in Sources */,
 				D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */,
+				D87CF84D24CA49D500AAB947 /* UserListPresenter.swift in Sources */,
+				D87CF85124CA4B0400AAB947 /* UserListRouter.swift in Sources */,
 				D87EE55C21D13FDB0076195F /* User.swift in Sources */,
 				D88E23DE21D593310098EA37 /* UserCollectionViewCell.swift in Sources */,
 				D8B0E53821CD6AC00005B871 /* AppDelegate.swift in Sources */,
