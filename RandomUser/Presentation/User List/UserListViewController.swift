@@ -11,23 +11,16 @@ import RxSwift
 
 class UserListViewController: UIViewController {
 
-    private let userCount = 15
-    private let disposeBag = DisposeBag()
-
-    private let userRepository: UserRepository
+    private let userListPresenter: UserListPresenter
 
     private var collectionView: UserListCollectionView
-
-    private var dataSource: UserListDataSource?
-
-    private var userListDelegate: UserListDelegate?
 
     private let searchController = UISearchController(searchResultsController: nil)
 
     weak var coordinator: UserInformationCoordinating?
 
-    init(userRepository: UserRepository) {
-        self.userRepository = userRepository
+    init(userListPresenter: UserListPresenter) {
+        self.userListPresenter = userListPresenter
         let flowLayout = UICollectionViewFlowLayout()
         collectionView = UserListCollectionView(frame: .zero, collectionViewLayout: flowLayout)
         super.init(nibName: nil, bundle: nil)
@@ -42,36 +35,26 @@ class UserListViewController: UIViewController {
     override func loadView() {
         prepareUserListCollectionView(collectionView: collectionView)
         view = collectionView
-        assert(dataSource != nil)
-        assert(userListDelegate != nil)
         assert(coordinator != nil)
     }
 
     private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
-        dataSource = UserListDataSource()
-        userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
-            guard let user = self?.dataSource?.visibleUsers[indexPath.row] else {
-                assertionFailure("Can't get user at index \(indexPath.row)")
-                return
-            }
-            self?.coordinator?.showUserDetails(user: user)
-        })
-        collectionView.dataSource = dataSource
-        collectionView.delegate = userListDelegate
+        collectionView.dataSource = userListPresenter.dataSource
+        assert(collectionView.dataSource != nil)
+        collectionView.delegate = userListPresenter.userListDelegate
+        assert(collectionView.delegate != nil)
         collectionView.backgroundColor = .green
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        userRepository.getUsers(count: userCount)
-            .asDriver(onErrorJustReturn: [])
-            .drive(onNext: { [weak self] users in
-                self?.loadNewUsers(users: users)
-            })
-            .disposed(by: disposeBag)
         setupRefreshControl()
         setupSearchController()
+
+        userListPresenter.reloadUsersLookup = { [weak self] users in
+            self?.reload(users: users)
+        }
+        userListPresenter.loadUsers()
     }
 
     private func setupRefreshControl() {
@@ -92,25 +75,14 @@ class UserListViewController: UIViewController {
     }
 
     @objc private func refreshOptions(sender: UIRefreshControl) {
-        userRepository.getFreshUsers(count: userCount)
-            .asDriver(onErrorJustReturn: [])
-            .drive(onNext: { [weak self] users in
-                self?.loadNewUsers(users: users)
-                sender.endRefreshing()
-            })
-            .disposed(by: disposeBag)
+        userListPresenter.refreshUsers()
     }
 
-    private func loadNewUsers(users: [User]) {
-        dataSource?.updateUsers(users: users)
-        filterAndReloadData()
-        print("just loaded \(users.count) users")
+    private func reload(users: [User]) {
+        collectionView.refreshControl?.endRefreshing()
+        collectionView.reloadData()
+        print("reloaded with \(users.count) users")
     }
-
-    private func filterAndReloadData() {
-        updateSearchResults(for: searchController)
-    }
-
 }
 
 extension UserListViewController: UISearchResultsUpdating {
@@ -118,16 +90,13 @@ extension UserListViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
 
     func updateSearchResults(for searchController: UISearchController) {
-        guard let dataSource = dataSource else {
-            assertionFailure("No data source.")
-            return
-        }
-        dataSource.presentationType = listPresentationType(for: searchController, and: dataSource)
+        let presentationType = listPresentationType(for: searchController)
+        userListPresenter.updateSearchResults(presentationType: presentationType)
         collectionView.reloadData()
     }
 }
 
-private func listPresentationType(for searchController: UISearchController, and dataSource: UserListDataSource) -> PresentationType {
+private func listPresentationType(for searchController: UISearchController) -> PresentationType {
     guard searchController.isActive,
         let searchText = searchController.searchBar.text else {
             return .normal

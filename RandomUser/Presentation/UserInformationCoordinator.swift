@@ -25,7 +25,10 @@ final class UserInformationCoordinator: UserInformationCoordinating {
 
     func start() {
         assert(navigationController == nil, "Start method should be called only during `didFinishLaunchingWithOptions`")
-        let userListViewController = UserListViewController(userRepository: userRepository)
+        let userListInteractor = UserListInteractor(userRepository: userRepository)
+        let router = UserListRouter()
+        let userListPresenter = UserListPresenter(interactor: userListInteractor, router: router)
+        let userListViewController = UserListViewController(userListPresenter: userListPresenter)
         userListViewController.coordinator = self
         navigationController = UINavigationController(rootViewController: userListViewController)
 
