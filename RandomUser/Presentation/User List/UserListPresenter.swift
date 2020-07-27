@@ -9,9 +9,20 @@
 import RxCocoa
 import RxSwift
 
-class UserListPresenter {
+protocol UserListPresenterType: class {
 
     typealias ReloadUsersLookup = ([User]) -> Void
+
+    var reloadUsersLookup: ReloadUsersLookup { get set }
+    var dataSource: UserListDataSource { get }
+    var userListDelegate: UserListDelegate? { get }
+
+    func loadUsers()
+    func refreshUsers()
+    func updateSearchResults(presentationType: PresentationType)
+}
+
+class UserListPresenter: UserListPresenterType {
 
     var reloadUsersLookup: ReloadUsersLookup = { _ in }
 
