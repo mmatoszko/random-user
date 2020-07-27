@@ -9,11 +9,7 @@
 import Foundation
 import UIKit
 
-protocol UserInformationCoordinating: class {
-    func showUserDetails(user: User)
-}
-
-final class UserInformationCoordinator: UserInformationCoordinating {
+final class UserInformationCoordinator {
 
     private let window: UIWindow
 
@@ -25,20 +21,21 @@ final class UserInformationCoordinator: UserInformationCoordinating {
 
     func start() {
         assert(navigationController == nil, "Start method should be called only during `didFinishLaunchingWithOptions`")
-        let userListInteractor = UserListInteractor(userRepository: userRepository)
         let router = UserListRouter()
-        let userListPresenter = UserListPresenter(interactor: userListInteractor, router: router)
-        let userListViewController = UserListViewController(userListPresenter: userListPresenter)
-        userListViewController.coordinator = self
-        navigationController = UINavigationController(rootViewController: userListViewController)
+        let userListViewController = createUserListViewController(router: router)
+        let navigationController = UINavigationController(rootViewController: userListViewController)
+        self.navigationController = navigationController
+        router.navigationController = navigationController
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 
-    func showUserDetails(user: User) {
-        let userDetailsViewController = UserDetailsViewController(user: user)
-        navigationController?.pushViewController(userDetailsViewController, animated: true)
+    private func createUserListViewController(router: UserListRouter) -> UserListViewController {
+        let userListInteractor = UserListInteractor(userRepository: userRepository)
+        let userListPresenter = UserListPresenter(interactor: userListInteractor, router: router)
+        return UserListViewController(userListPresenter: userListPresenter)
+
     }
 
     private lazy var userRepository: UserRepository = {

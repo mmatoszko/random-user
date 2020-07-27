@@ -34,7 +34,7 @@ class UserListPresenter {
                 assertionFailure("Can't get user at index \(indexPath.row)")
                 return
             }
-//            self?.coordinator?.showUserDetails(user: user)
+            self?.router.showUserDetails(user: user)
         })
         interactor.visibleUsers.asDriver()
             .drive(onNext: { [weak self] users in

@@ -17,8 +17,6 @@ class UserListViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
 
-    weak var coordinator: UserInformationCoordinating?
-
     init(userListPresenter: UserListPresenter) {
         self.userListPresenter = userListPresenter
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,7 +33,6 @@ class UserListViewController: UIViewController {
     override func loadView() {
         prepareUserListCollectionView(collectionView: collectionView)
         view = collectionView
-        assert(coordinator != nil)
     }
 
     private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
