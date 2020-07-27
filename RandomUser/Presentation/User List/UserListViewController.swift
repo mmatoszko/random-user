@@ -11,13 +11,13 @@ import RxSwift
 
 class UserListViewController: UIViewController {
 
-    private let userListPresenter: UserListPresenter
+    private let userListPresenter: UserListPresenterType
 
     private var collectionView: UserListCollectionView
 
     private let searchController = UISearchController(searchResultsController: nil)
 
-    init(userListPresenter: UserListPresenter) {
+    init(userListPresenter: UserListPresenterType) {
         self.userListPresenter = userListPresenter
         let flowLayout = UICollectionViewFlowLayout()
         collectionView = UserListCollectionView(frame: .zero, collectionViewLayout: flowLayout)
