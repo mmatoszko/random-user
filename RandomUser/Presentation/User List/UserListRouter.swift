@@ -17,6 +17,8 @@ class UserListRouter: UserListRouterType {
 
     var navigationController: UINavigationController?
 
+    // MARK: - Public Methods
+
     func showUserDetails(user: User) {
         let userDetailsViewController = UserDetailsViewController(user: user)
         navigationController?.pushViewController(userDetailsViewController, animated: true)

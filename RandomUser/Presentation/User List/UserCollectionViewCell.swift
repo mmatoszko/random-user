@@ -17,6 +17,8 @@ final class UserCollectionViewCell: UICollectionViewCell {
 
     let nameLabel: UILabel
 
+    // MARK: - Initialization
+
     override init(frame: CGRect) {
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,16 +42,17 @@ final class UserCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func render(user: User) {
-        imageView.kf.setImage(with: user.picture.medium)
-        // This could be done also in a properly tested view model
-        nameLabel.text = user.fullName
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         imageView.image = nil
         nameLabel.text = nil
     }
 
+    // MARK: - Public Methods
+
+    func render(user: User) {
+        imageView.kf.setImage(with: user.picture.medium)
+        // This could be done also in a properly tested view model
+        nameLabel.text = user.fullName
+    }
 }

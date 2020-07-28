@@ -26,7 +26,7 @@ class UserListPresenter: UserListPresenterType {
 
     var reloadUsersLookup: ReloadUsersLookup = { _ in }
 
-    var dataSource: UserListDataSource
+    let dataSource: UserListDataSource
     var userListDelegate: UserListDelegate?
 
     private let interactor: UserListInteractorType
@@ -34,6 +34,8 @@ class UserListPresenter: UserListPresenterType {
     private let userCount = 15
 
     private let disposeBag = DisposeBag()
+
+    // MARK: - Initialization
 
     init(interactor: UserListInteractorType, router: UserListRouterType) {
         self.interactor = interactor
@@ -54,6 +56,8 @@ class UserListPresenter: UserListPresenterType {
             })
             .disposed(by: disposeBag)
     }
+
+    // MARK: - Public Methods
 
     func loadUsers() {
         interactor.loadUsers(userCount: userCount)

@@ -10,6 +10,8 @@ import UIKit
 
 final class UserListCollectionView: UICollectionView {
 
+    // MARK: - Initialization
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         register(UserCollectionViewCell.self, forCellWithReuseIdentifier: UserCollectionViewCell.identifier)

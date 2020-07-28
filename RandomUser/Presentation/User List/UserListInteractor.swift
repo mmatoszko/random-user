@@ -28,6 +28,8 @@ class UserListInteractor: UserListInteractorType {
     private let userRepository: UserRepositoryType
     private let disposeBag = DisposeBag()
 
+    // MARK: - Initialization
+
     init(userRepository: UserRepositoryType) {
         self.userRepository = userRepository
         Observable.combineLatest(users, presentationType)
@@ -36,6 +38,8 @@ class UserListInteractor: UserListInteractorType {
             .drive(visibleUsers)
             .disposed(by: disposeBag)
     }
+
+    // MARK: - Public Methods
 
     func loadUsers(userCount: Int) {
         userRepository
