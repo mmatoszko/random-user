@@ -21,7 +21,7 @@ final class RestApi {
         self.urlSession = urlSession
     }
 
-    func getUsers(count: Int) -> Observable<[User]> {
+    func getUsers(count: Int) -> Single<[User]> {
         let endpoint = "api"
         guard let pathUrl = URL(string: endpoint, relativeTo: baseURL) else {
             return .error(ApiError.unableToCreatePath)
@@ -38,7 +38,7 @@ final class RestApi {
         }
 
         let request = URLRequest(url: url)
-        return urlSession.rx.data(request: request).map(decodedUsers)
+        return urlSession.rx.data(request: request).map(decodedUsers).asSingle()
     }
 }
 
