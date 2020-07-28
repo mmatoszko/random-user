@@ -9,7 +9,12 @@
 import Foundation
 import RxSwift
 
-final class UserRepository {
+protocol UserRepositoryType {
+    func getUsers(count: Int) -> Observable<[User]>
+    func getFreshUsers(count: Int) -> Observable<[User]>
+}
+
+final class UserRepository: UserRepositoryType {
 
     typealias RemoteUsersCallback = (Int) -> Observable<[User]>
     private var remoteUsersCallback: RemoteUsersCallback
@@ -21,15 +26,7 @@ final class UserRepository {
         self.userStore = userStore
     }
 
-    private var persistedUsers: Observable<[User]> {
-        return Observable.create { [weak self] observer -> Disposable in
-            self?.userStore.loadUsers(callback: { users in
-                observer.onNext(users)
-                observer.onCompleted()
-            })
-            return Disposables.create()
-        }
-    }
+    // MARK: - Public Methods
 
     func getUsers(count: Int) -> Observable<[User]> {
         return persistedUsers.flatMapLatest { [weak self] users -> Observable<[User]> in
@@ -48,5 +45,17 @@ final class UserRepository {
             .do(onNext: { [userStore] users in
                 userStore.persistAsync(users: users)
             })
+    }
+
+    // MARK: - Private Methods
+
+    private var persistedUsers: Observable<[User]> {
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.userStore.loadUsers(callback: { users in
+                observer.onNext(users)
+                observer.onCompleted()
+            })
+            return Disposables.create()
+        }
     }
 }
