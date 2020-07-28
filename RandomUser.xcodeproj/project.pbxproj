@@ -23,7 +23,6 @@
 		D87CF85124CA4B0400AAB947 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF85024CA4B0400AAB947 /* UserListRouter.swift */; };
 		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
-		D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
 		D88E23D821D524000098EA37 /* UserInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */; };
 		D88E23DA21D53A1A0098EA37 /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23D921D53A1A0098EA37 /* UserListDataSource.swift */; };
 		D88E23DC21D53E2D0098EA37 /* UserListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23DB21D53E2D0098EA37 /* UserListCollectionView.swift */; };
@@ -36,6 +35,7 @@
 		D8B0E55B21CD6AC20005B871 /* RandomUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */; };
 		D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
 		D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888975521DA592C0033FA26 /* UserRepositoryTests.swift */; };
+		D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,13 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				D87EE55B21D13FDB0076195F /* User.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D87EE55D21D1C38A0076195F /* Model */ = {
-			isa = PBXGroup;
-			children = (
 				D87EE55E21D1C3AF0076195F /* UserTests.swift */,
 			);
 			path = Model;
@@ -268,7 +261,6 @@
 			isa = PBXGroup;
 			children = (
 				D8691E8421DEA6130074A522 /* Presentation */,
-				D87EE55D21D1C38A0076195F /* Model */,
 				D8B0E55121CD6AC20005B871 /* Info.plist */,
 			);
 			path = RandomUserTests;
@@ -501,9 +493,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */,
 				D8691E8721DEA7620074A522 /* FilterFunctionTests.swift in Sources */,
 				D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */,
-				D87EE55F21D1C3AF0076195F /* UserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
