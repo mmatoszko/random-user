@@ -17,7 +17,7 @@
 		D865E14921D973B7007F2C6A /* UserListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865E14821D973B7007F2C6A /* UserListDelegate.swift */; };
 		D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865E14A21D9988F007F2C6A /* Kingfisher.framework */; };
 		D8691E8221DD7BA00074A522 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */; };
-		D8691E8721DEA7620074A522 /* FilterFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8621DEA7620074A522 /* FilterFunctionTests.swift */; };
+		D8691E8721DEA7620074A522 /* UserFilterFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8621DEA7620074A522 /* UserFilterFunctionTests.swift */; };
 		D87CF84D24CA49D500AAB947 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */; };
 		D87CF84F24CA49FF00AAB947 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */; };
 		D87CF85124CA4B0400AAB947 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF85024CA4B0400AAB947 /* UserListRouter.swift */; };
@@ -78,7 +78,7 @@
 		D865E14821D973B7007F2C6A /* UserListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDelegate.swift; sourceTree = "<group>"; };
 		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
-		D8691E8621DEA7620074A522 /* FilterFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterFunctionTests.swift; sourceTree = "<group>"; };
+		D8691E8621DEA7620074A522 /* UserFilterFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterFunctionTests.swift; sourceTree = "<group>"; };
 		D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
 		D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		D87CF85024CA4B0400AAB947 /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
@@ -184,27 +184,12 @@
 			path = "User Details";
 			sourceTree = "<group>";
 		};
-		D8691E8421DEA6130074A522 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				D8691E8521DEA6200074A522 /* User List */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		D8691E8521DEA6200074A522 /* User List */ = {
-			isa = PBXGroup;
-			children = (
-				D8691E8621DEA7620074A522 /* FilterFunctionTests.swift */,
-			);
-			path = "User List";
-			sourceTree = "<group>";
-		};
 		D87EE55A21D13FBF0076195F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D87EE55B21D13FDB0076195F /* User.swift */,
 				D87EE55E21D1C3AF0076195F /* UserTests.swift */,
+				D8691E8621DEA7620074A522 /* UserFilterFunctionTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,7 +245,6 @@
 		D8B0E54E21CD6AC20005B871 /* RandomUserTests */ = {
 			isa = PBXGroup;
 			children = (
-				D8691E8421DEA6130074A522 /* Presentation */,
 				D8B0E55121CD6AC20005B871 /* Info.plist */,
 			);
 			path = RandomUserTests;
@@ -494,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */,
-				D8691E8721DEA7620074A522 /* FilterFunctionTests.swift in Sources */,
+				D8691E8721DEA7620074A522 /* UserFilterFunctionTests.swift in Sources */,
 				D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
