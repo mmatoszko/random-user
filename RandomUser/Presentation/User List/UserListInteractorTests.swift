@@ -60,11 +60,11 @@ class UserListInteractorTests: XCTestCase {
 }
 
 private class TestUserRepository: UserRepositoryType {
-    func getUsers(count: Int) -> Observable<[User]> {
+    func getUsers(count: Int) -> Single<[User]> {
         return .just([User(uuid: "42"), User(uuid: "43")])
     }
 
-    func getFreshUsers(count: Int) -> Observable<[User]> {
+    func getFreshUsers(count: Int) -> Single<[User]> {
         return .just([User(uuid: "fresh"), User(uuid: "new")])
     }
 }

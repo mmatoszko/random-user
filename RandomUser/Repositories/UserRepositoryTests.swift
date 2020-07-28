@@ -29,8 +29,8 @@ class UserRepositoryTests: XCTestCase {
 
     func testItShouldUpdatePersistedUsersWhenThereAreNoPersistedUsers() {
         let userStore = TestUserStore()
-        let remoteCallback: (Int) -> Observable<[User]> = { _ in
-            return Observable.just([User(uuid: "remote user")])
+        let remoteCallback: (Int) -> Single<[User]> = { _ in
+            return .just([User(uuid: "remote user")])
         }
         let repository = UserRepository(remoteUsersCallback: remoteCallback, userStore: userStore)
         guard let remote = try? repository.getUsers(count: 42).toBlocking().single() else {
@@ -54,8 +54,8 @@ class UserRepositoryTests: XCTestCase {
 
     func testGettingFreshUsersShouldUpdatePersistedUsers() {
         let userStore = TestUserStore()
-        let remoteCallback: (Int) -> Observable<[User]> = { _ in
-            return Observable.just([User(uuid: "fresh user")])
+        let remoteCallback: (Int) -> Single<[User]> = { _ in
+            return .just([User(uuid: "fresh user")])
         }
         let repository = UserRepository(remoteUsersCallback: remoteCallback, userStore: userStore)
         guard let remote = try? repository.getFreshUsers(count: 42).toBlocking().single() else {
@@ -85,8 +85,8 @@ private class TestUserStore: UserPersisting {
     }
 }
 
-private func testRemoteUsersCallback(count: Int) -> Observable<[User]> {
-    return Observable.just([User(uuid: "remote")])
+private func testRemoteUsersCallback(count: Int) -> Single<[User]> {
+    return .just([User(uuid: "remote")])
 }
 
 extension User {
