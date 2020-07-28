@@ -89,7 +89,7 @@ private func testRemoteUsersCallback(count: Int) -> Observable<[User]> {
     return Observable.just([User(uuid: "remote")])
 }
 
-private extension User {
+extension User {
     init(uuid: String) {
         let email = "john.doe@example.com"
         let login = Login(uuid: uuid)

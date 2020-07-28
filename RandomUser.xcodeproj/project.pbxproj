@@ -36,6 +36,7 @@
 		D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
 		D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888975521DA592C0033FA26 /* UserRepositoryTests.swift */; };
 		D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
+		D8E928D624D04D3200D9B489 /* UserListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E928D524D04D3200D9B489 /* UserListInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserUITests.swift; sourceTree = "<group>"; };
 		D8B0E55C21CD6AC20005B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BA533A21D0528100B987A8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		D8E928D524D04D3200D9B489 /* UserListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				D88E23DD21D593310098EA37 /* UserCollectionViewCell.swift */,
 				D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */,
 				D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */,
+				D8E928D524D04D3200D9B489 /* UserListInteractorTests.swift */,
 				D87CF85024CA4B0400AAB947 /* UserListRouter.swift */,
 			);
 			path = "User List";
@@ -478,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */,
+				D8E928D624D04D3200D9B489 /* UserListInteractorTests.swift in Sources */,
 				D8691E8721DEA7620074A522 /* UserFilterFunctionTests.swift in Sources */,
 				D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */,
 			);
