@@ -29,13 +29,13 @@ class UserListPresenter: UserListPresenterType {
     var dataSource: UserListDataSource
     var userListDelegate: UserListDelegate?
 
-    private let interactor: UserListInteractor
+    private let interactor: UserListInteractorType
     private let router: UserListRouter
     private let userCount = 15
 
     private let disposeBag = DisposeBag()
 
-    init(interactor: UserListInteractor, router: UserListRouter) {
+    init(interactor: UserListInteractorType, router: UserListRouter) {
         self.interactor = interactor
         self.router = router
 

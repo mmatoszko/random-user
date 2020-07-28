@@ -9,16 +9,24 @@
 import RxSwift
 import RxRelay
 
-class UserListInteractor {
+protocol UserListInteractorType {
+    var visibleUsers: BehaviorRelay<[User]> { get }
+    var presentationType: BehaviorRelay<PresentationType> { get }
+
+    func loadUsers(userCount: Int)
+    func refreshUsers(userCount: Int)
+}
+
+class UserListInteractor: UserListInteractorType {
+
+    let visibleUsers = BehaviorRelay<[User]>(value: [])
+    /** Presentation state of the DataSource. */
+    let presentationType = BehaviorRelay<PresentationType>(value: .normal)
 
     private let users = BehaviorRelay<[User]>(value: [])
-    let visibleUsers = BehaviorRelay<[User]>(value: [])
 
     private let userRepository: UserRepository
     private let disposeBag = DisposeBag()
-
-    /** Presentation state of the DataSource. */
-    let presentationType = BehaviorRelay<PresentationType>(value: .normal)
 
     init(userRepository: UserRepository) {
         self.userRepository = userRepository
@@ -44,8 +52,6 @@ class UserListInteractor {
             .drive(users)
             .disposed(by: disposeBag)
     }
-
-    // MARK: - Private Methods
 }
 
 private func filterUsers(users: [User], presentationType: PresentationType) -> [User] {
