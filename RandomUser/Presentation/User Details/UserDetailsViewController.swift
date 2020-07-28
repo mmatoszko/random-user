@@ -12,6 +12,8 @@ class UserDetailsViewController: UIViewController {
 
     private let user: User
 
+    // MARK: - Initialization
+
     init(user: User) {
         self.user = user
         super.init(nibName: nil, bundle: nil)

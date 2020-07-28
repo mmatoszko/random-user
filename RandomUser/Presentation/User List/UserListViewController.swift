@@ -17,6 +17,8 @@ class UserListViewController: UIViewController {
 
     private let searchController = UISearchController(searchResultsController: nil)
 
+    // MARK: - Initialization
+
     init(userListPresenter: UserListPresenterType) {
         self.userListPresenter = userListPresenter
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,14 +37,6 @@ class UserListViewController: UIViewController {
         view = collectionView
     }
 
-    private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
-        collectionView.dataSource = userListPresenter.dataSource
-        assert(collectionView.dataSource != nil)
-        collectionView.delegate = userListPresenter.userListDelegate
-        assert(collectionView.delegate != nil)
-        collectionView.backgroundColor = .green
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRefreshControl()
@@ -52,6 +46,16 @@ class UserListViewController: UIViewController {
             self?.reload(users: users)
         }
         userListPresenter.loadUsers()
+    }
+
+    // MARK: - Private Methods
+
+    private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
+        collectionView.dataSource = userListPresenter.dataSource
+        assert(collectionView.dataSource != nil)
+        collectionView.delegate = userListPresenter.userListDelegate
+        assert(collectionView.delegate != nil)
+        collectionView.backgroundColor = .green
     }
 
     private func setupRefreshControl() {

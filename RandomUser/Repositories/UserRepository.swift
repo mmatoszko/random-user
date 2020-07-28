@@ -21,6 +21,8 @@ final class UserRepository: UserRepositoryType {
 
     private var userStore: UserPersisting
 
+    // MARK: - Initialization
+
     init(remoteUsersCallback: @escaping RemoteUsersCallback, userStore: UserPersisting) {
         self.remoteUsersCallback = remoteUsersCallback
         self.userStore = userStore

@@ -17,9 +17,13 @@ final class RestApi {
 
     private let urlSession: URLSession
 
+    // MARK: - Initialization
+
     init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
+
+    // MARK: - Public Methods
 
     func getUsers(count: Int) -> Single<[User]> {
         let endpoint = "api"
