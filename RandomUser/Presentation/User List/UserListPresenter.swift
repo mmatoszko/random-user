@@ -30,12 +30,12 @@ class UserListPresenter: UserListPresenterType {
     var userListDelegate: UserListDelegate?
 
     private let interactor: UserListInteractorType
-    private let router: UserListRouter
+    private let router: UserListRouterType
     private let userCount = 15
 
     private let disposeBag = DisposeBag()
 
-    init(interactor: UserListInteractorType, router: UserListRouter) {
+    init(interactor: UserListInteractorType, router: UserListRouterType) {
         self.interactor = interactor
         self.router = router
 

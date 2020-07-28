@@ -8,7 +8,12 @@
 
 import UIKit
 
-class UserListRouter {
+protocol UserListRouterType {
+    var navigationController: UINavigationController? { get set }
+    func showUserDetails(user: User)
+}
+
+class UserListRouter: UserListRouterType {
 
     var navigationController: UINavigationController?
 
