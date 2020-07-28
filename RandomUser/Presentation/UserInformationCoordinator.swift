@@ -38,7 +38,7 @@ final class UserInformationCoordinator {
 
     }
 
-    private lazy var userRepository: UserRepository = {
+    private lazy var userRepository: UserRepositoryType = {
         let userStore = createUserStore()
         return UserRepository(remoteUsersCallback: restApi.getUsers, userStore: userStore)
     }()

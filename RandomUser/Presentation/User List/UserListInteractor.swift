@@ -25,10 +25,10 @@ class UserListInteractor: UserListInteractorType {
 
     private let users = BehaviorRelay<[User]>(value: [])
 
-    private let userRepository: UserRepository
+    private let userRepository: UserRepositoryType
     private let disposeBag = DisposeBag()
 
-    init(userRepository: UserRepository) {
+    init(userRepository: UserRepositoryType) {
         self.userRepository = userRepository
         Observable.combineLatest(users, presentationType)
             .map(filterUsers)
