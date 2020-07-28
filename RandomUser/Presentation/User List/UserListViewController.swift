@@ -87,23 +87,10 @@ extension UserListViewController: UISearchResultsUpdating {
     // MARK: - UISearchResultsUpdating Delegate
 
     func updateSearchResults(for searchController: UISearchController) {
-        let presentationType = listPresentationType(for: searchController)
-        userListPresenter.updateSearchResults(presentationType: presentationType)
+        userListPresenter.updateSearchResults(
+            searchActive: searchController.isActive,
+            searchText: searchController.searchBar.text
+        )
         collectionView.reloadData()
     }
-}
-
-private func listPresentationType(for searchController: UISearchController) -> PresentationType {
-    guard searchController.isActive,
-        let searchText = searchController.searchBar.text else {
-            return .normal
-    }
-    // We could also add a custom operator for function composition here, but not everyone likes that
-    let userFilter: (User) -> Bool = createUsersFilter(searchText: searchText)
-    return .filtered(predicate: userFilter)
-}
-
-func createUsersFilter<T: FullName>(searchText: String) -> (T) -> Bool {
-    if searchText.isEmpty { return { _ in return true } }
-    return { return $0.fullName.lowercased().contains(searchText.lowercased()) }
 }

@@ -19,7 +19,7 @@ protocol UserListPresenterType: class {
 
     func loadUsers()
     func refreshUsers()
-    func updateSearchResults(presentationType: PresentationType)
+    func updateSearchResults(searchActive: Bool, searchText: String?)
 }
 
 class UserListPresenter: UserListPresenterType {
@@ -63,7 +63,23 @@ class UserListPresenter: UserListPresenterType {
         interactor.refreshUsers(userCount: userCount)
     }
 
-    func updateSearchResults(presentationType: PresentationType) {
+    func updateSearchResults(searchActive: Bool, searchText: String?) {
+        let presentationType = listPresentationType(for: searchActive, searchText: searchText)
         interactor.presentationType.accept(presentationType)
     }
+}
+
+private func listPresentationType(for searchActive: Bool, searchText: String?) -> PresentationType {
+    guard searchActive,
+        let searchText = searchText, !searchText.isEmpty else {
+            return .normal
+    }
+    // We could also add a custom operator for function composition here, but not everyone likes that
+    let userFilter: (User) -> Bool = createUsersFilter(searchText: searchText)
+    return .filtered(predicate: userFilter)
+}
+
+func createUsersFilter<T: FullName>(searchText: String) -> (T) -> Bool {
+    if searchText.isEmpty { return { _ in return true } }
+    return { return $0.fullName.lowercased().contains(searchText.lowercased()) }
 }
