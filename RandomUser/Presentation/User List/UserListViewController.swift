@@ -53,8 +53,8 @@ class UserListViewController: UIViewController {
         setupRefreshControl()
         setupSearchController()
 
-        userListPresenter.reloadUsersLookup = { [weak self] users in
-            self?.reload(users: users)
+        userListPresenter.reloadUsersLookup = { [weak self] update in
+            self?.reload(users: update.users, animatingDifferences: update.animate)
         }
         userListPresenter.loadUsers()
     }
@@ -90,13 +90,13 @@ class UserListViewController: UIViewController {
         userListPresenter.refreshUsers()
     }
 
-    private func reload(users: [User]) {
+    private func reload(users: [User], animatingDifferences: Bool) {
         collectionView.refreshControl?.endRefreshing()
-        applySnapshot()
+        applySnapshot(animatingDifferences: animatingDifferences)
         print("reloaded with \(users.count) users")
     }
 
-    func applySnapshot(animatingDifferences: Bool = true) {
+    func applySnapshot(animatingDifferences: Bool) {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(userListPresenter.visibleUsers)

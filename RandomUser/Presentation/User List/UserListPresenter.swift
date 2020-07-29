@@ -11,7 +11,8 @@ import RxSwift
 
 protocol UserListPresenterType: class {
 
-    typealias ReloadUsersLookup = ([User]) -> Void
+    typealias UsersUpdate = (users: [User], animate: Bool)
+    typealias ReloadUsersLookup = (UsersUpdate) -> Void
 
     var reloadUsersLookup: ReloadUsersLookup { get set }
 
@@ -43,8 +44,10 @@ class UserListPresenter: UserListPresenterType {
 
         interactor.visibleUsers.asDriver()
             .drive(onNext: { [weak self] users in
+                // Animate only when there already were users
+                let shouldAnimate = self?.visibleUsers.isEmpty == false
                 self?.visibleUsers = users
-                self?.reloadUsersLookup(users)
+                self?.reloadUsersLookup(UsersUpdate(users, shouldAnimate))
             })
             .disposed(by: disposeBag)
     }
