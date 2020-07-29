@@ -15,6 +15,9 @@ class UserListViewController: UIViewController {
 
     private var collectionView: UserListCollectionView
 
+    private let dataSource: UserListDataSource
+    private var userListDelegate: UserListDelegate?
+
     private let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - Initialization
@@ -23,8 +26,16 @@ class UserListViewController: UIViewController {
         self.userListPresenter = userListPresenter
         let flowLayout = UICollectionViewFlowLayout()
         collectionView = UserListCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        dataSource = makeUserListDataSource(collectionView: collectionView)
         super.init(nibName: nil, bundle: nil)
         title = "Random Users"
+        userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
+            guard let user = self?.dataSource.itemIdentifier(for: indexPath) else {
+                assertionFailure("Can't get user at index \(indexPath.row)")
+                return
+            }
+            self?.userListPresenter.selectedUser(user: user)
+        })
     }
 
     @available(*, unavailable)
@@ -51,9 +62,9 @@ class UserListViewController: UIViewController {
     // MARK: - Private Methods
 
     private func prepareUserListCollectionView(collectionView: UserListCollectionView) {
-        collectionView.dataSource = userListPresenter.dataSource
+        collectionView.dataSource = dataSource
         assert(collectionView.dataSource != nil)
-        collectionView.delegate = userListPresenter.userListDelegate
+        collectionView.delegate = userListDelegate
         assert(collectionView.delegate != nil)
         collectionView.backgroundColor = .green
     }
@@ -81,8 +92,15 @@ class UserListViewController: UIViewController {
 
     private func reload(users: [User]) {
         collectionView.refreshControl?.endRefreshing()
-        collectionView.reloadData()
+        applySnapshot()
         print("reloaded with \(users.count) users")
+    }
+
+    func applySnapshot(animatingDifferences: Bool = true) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(userListPresenter.visibleUsers)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 }
 
@@ -95,6 +113,5 @@ extension UserListViewController: UISearchResultsUpdating {
             searchActive: searchController.isActive,
             searchText: searchController.searchBar.text
         )
-        collectionView.reloadData()
     }
 }

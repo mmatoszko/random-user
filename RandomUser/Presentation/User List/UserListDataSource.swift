@@ -8,20 +8,18 @@
 
 import UIKit
 
-final class UserListDataSource: NSObject, UICollectionViewDataSource {
+enum Section {
+    case main
+}
 
-    var users: [User] = []
+typealias UserListDataSource = UICollectionViewDiffableDataSource<Section, User>
+typealias Snapshot = NSDiffableDataSourceSnapshot<Section, User>
 
-    // MARK: - UICollectionViewDataSource Delegate
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as! UserCollectionViewCell
-        let user = users[indexPath.row]
-        cell.render(user: user)
+func makeUserListDataSource(collectionView: UICollectionView) -> UserListDataSource {
+    return UserListDataSource(
+    collectionView: collectionView) { (collectionView, indexPath, user) -> UICollectionViewCell? in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserCollectionViewCell.identifier, for: indexPath) as? UserCollectionViewCell
+        cell?.render(user: user)
         return cell
     }
 }
