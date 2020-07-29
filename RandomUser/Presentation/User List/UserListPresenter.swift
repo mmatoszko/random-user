@@ -14,9 +14,10 @@ protocol UserListPresenterType: class {
     typealias ReloadUsersLookup = ([User]) -> Void
 
     var reloadUsersLookup: ReloadUsersLookup { get set }
-    var dataSource: UserListDataSource { get }
-    var userListDelegate: UserListDelegate? { get }
 
+    var visibleUsers: [User] { get }
+
+    func selectedUser(user: User)
     func loadUsers()
     func refreshUsers()
     func updateSearchResults(searchActive: Bool, searchText: String?)
@@ -26,8 +27,7 @@ class UserListPresenter: UserListPresenterType {
 
     var reloadUsersLookup: ReloadUsersLookup = { _ in }
 
-    let dataSource: UserListDataSource
-    var userListDelegate: UserListDelegate?
+    var visibleUsers: [User] = []
 
     private let interactor: UserListInteractorType
     private let router: UserListRouterType
@@ -41,23 +41,19 @@ class UserListPresenter: UserListPresenterType {
         self.interactor = interactor
         self.router = router
 
-        dataSource = UserListDataSource()
-        userListDelegate = UserListDelegate(cellSelectionCallback: { [weak self] indexPath in
-            guard let user = self?.dataSource.users[indexPath.row] else {
-                assertionFailure("Can't get user at index \(indexPath.row)")
-                return
-            }
-            self?.router.showUserDetails(user: user)
-        })
         interactor.visibleUsers.asDriver()
             .drive(onNext: { [weak self] users in
-                self?.dataSource.users = users
+                self?.visibleUsers = users
                 self?.reloadUsersLookup(users)
             })
             .disposed(by: disposeBag)
     }
 
     // MARK: - Public Methods
+
+    func selectedUser(user: User) {
+        router.showUserDetails(user: user)
+    }
 
     func loadUsers() {
         interactor.loadUsers(userCount: userCount)
