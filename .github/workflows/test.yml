@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   test:
@@ -13,9 +13,7 @@ jobs:
     strategy:
       matrix:
         xcode:
-          - 11.5
-          - 11.6
-          - 12_beta
+          - 12.4
 
     steps:
     - uses: actions/checkout@master
@@ -28,6 +26,6 @@ jobs:
         key: ${{ runner.os }}-xcode-${{ matrix.xcode }}-${{ hashFiles('**/Cartfile.resolved') }}
     - name: Carthage
       if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: carthage bootstrap --no-use-binaries --platform iOS --cache-builds
+      run: carthage bootstrap --use-xcframeworks --no-use-binaries --platform iOS --cache-builds
     - name: Run unit tests with iPhone 11
       run:  xcodebuild clean test -project RandomUser.xcodeproj -scheme RandomUser -destination "platform=iOS Simulator,name=iPhone 11" | xcpretty && exit ${PIPESTATUS[0]}
