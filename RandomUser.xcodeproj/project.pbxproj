@@ -3,25 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D81CC77921D30AD4005E0AC9 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77821D30AD4005E0AC9 /* RestApi.swift */; };
 		D81CC77C21D30FD1005E0AC9 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77B21D30FD1005E0AC9 /* UserStore.swift */; };
 		D81CC77F21D42DC2005E0AC9 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */; };
-		D81DFA04243A4CC800A0E733 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81DFA00243A4C6600A0E733 /* RxRelay.framework */; };
-		D81DFA05243A4CC800A0E733 /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D81DFA00243A4C6600A0E733 /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D82DD74421DA64C0006000BD /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
-		D82DD74621DA64C0006000BD /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D82DD74521DA64C0006000BD /* RxBlocking.framework */; };
 		D865E14921D973B7007F2C6A /* UserListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D865E14821D973B7007F2C6A /* UserListDelegate.swift */; };
-		D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D865E14A21D9988F007F2C6A /* Kingfisher.framework */; };
 		D8691E8221DD7BA00074A522 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */; };
 		D8691E8721DEA7620074A522 /* UserFilterFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8691E8621DEA7620074A522 /* UserFilterFunctionTests.swift */; };
+		D86B3C9625F0210A00252BDD /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86B3C8A25F020A700252BDD /* RxBlocking.xcframework */; };
+		D86B3CA125F0214800252BDD /* RxBlocking.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D86B3C8A25F020A700252BDD /* RxBlocking.xcframework */; };
 		D87CF84D24CA49D500AAB947 /* UserListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */; };
 		D87CF84F24CA49FF00AAB947 /* UserListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */; };
 		D87CF85124CA4B0400AAB947 /* UserListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87CF85024CA4B0400AAB947 /* UserListRouter.swift */; };
-		D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87EE55421D13B090076195F /* RxCocoa.framework */; };
 		D87EE55C21D13FDB0076195F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55B21D13FDB0076195F /* User.swift */; };
 		D88E23D821D524000098EA37 /* UserInformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23D721D524000098EA37 /* UserInformationCoordinator.swift */; };
 		D88E23DA21D53A1A0098EA37 /* UserListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E23D921D53A1A0098EA37 /* UserListDataSource.swift */; };
@@ -33,7 +29,10 @@
 		D8B0E54221CD6AC20005B871 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8B0E54121CD6AC20005B871 /* Assets.xcassets */; };
 		D8B0E54521CD6AC20005B871 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8B0E54321CD6AC20005B871 /* LaunchScreen.storyboard */; };
 		D8B0E55B21CD6AC20005B871 /* RandomUserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */; };
-		D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BA533A21D0528100B987A8 /* RxSwift.framework */; };
+		D8BBB2E725ED673700EEB0F5 /* Kingfisher.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB2E425ED673700EEB0F5 /* Kingfisher.xcframework */; };
+		D8BBB2E825ED673700EEB0F5 /* RxCocoa.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB2E525ED673700EEB0F5 /* RxCocoa.xcframework */; };
+		D8BBB2E925ED673700EEB0F5 /* RxRelay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB2E625ED673700EEB0F5 /* RxRelay.xcframework */; };
+		D8BBB2ED25ED674D00EEB0F5 /* RxSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB2EC25ED674D00EEB0F5 /* RxSwift.xcframework */; };
 		D8E928D224D04BBA00D9B489 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888975521DA592C0033FA26 /* UserRepositoryTests.swift */; };
 		D8E928D424D04C1000D9B489 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87EE55E21D1C3AF0076195F /* UserTests.swift */; };
 		D8E928D624D04D3200D9B489 /* UserListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E928D524D04D3200D9B489 /* UserListInteractorTests.swift */; };
@@ -56,34 +55,17 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D81DFA06243A4CC800A0E733 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D81DFA05243A4CC800A0E733 /* RxRelay.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		D81CC77821D30AD4005E0AC9 /* RestApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		D81CC77B21D30FD1005E0AC9 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		D81CC77E21D42DC2005E0AC9 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
-		D81DFA00243A4C6600A0E733 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
-		D82DD74521DA64C0006000BD /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		D865E14821D973B7007F2C6A /* UserListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListDelegate.swift; sourceTree = "<group>"; };
-		D865E14A21D9988F007F2C6A /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		D8691E8121DD7BA00074A522 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 		D8691E8621DEA7620074A522 /* UserFilterFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFilterFunctionTests.swift; sourceTree = "<group>"; };
+		D86B3C8A25F020A700252BDD /* RxBlocking.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxBlocking.xcframework; path = Carthage/Build/RxBlocking.xcframework; sourceTree = "<group>"; };
 		D87CF84C24CA49D500AAB947 /* UserListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListPresenter.swift; sourceTree = "<group>"; };
 		D87CF84E24CA49FF00AAB947 /* UserListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractor.swift; sourceTree = "<group>"; };
 		D87CF85024CA4B0400AAB947 /* UserListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListRouter.swift; sourceTree = "<group>"; };
-		D87EE55421D13B090076195F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		D87EE55B21D13FDB0076195F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D87EE55E21D1C3AF0076195F /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		D888975521DA592C0033FA26 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
@@ -103,7 +85,10 @@
 		D8B0E55621CD6AC20005B871 /* RandomUserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0E55A21CD6AC20005B871 /* RandomUserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserUITests.swift; sourceTree = "<group>"; };
 		D8B0E55C21CD6AC20005B871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8BA533A21D0528100B987A8 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		D8BBB2E425ED673700EEB0F5 /* Kingfisher.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Kingfisher.xcframework; path = Carthage/Build/Kingfisher.xcframework; sourceTree = "<group>"; };
+		D8BBB2E525ED673700EEB0F5 /* RxCocoa.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxCocoa.xcframework; path = Carthage/Build/RxCocoa.xcframework; sourceTree = "<group>"; };
+		D8BBB2E625ED673700EEB0F5 /* RxRelay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxRelay.xcframework; path = Carthage/Build/RxRelay.xcframework; sourceTree = "<group>"; };
+		D8BBB2EC25ED674D00EEB0F5 /* RxSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = RxSwift.xcframework; path = Carthage/Build/RxSwift.xcframework; sourceTree = "<group>"; };
 		D8E928D524D04D3200D9B489 /* UserListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,10 +97,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D81DFA04243A4CC800A0E733 /* RxRelay.framework in Frameworks */,
-				D865E14B21D9988F007F2C6A /* Kingfisher.framework in Frameworks */,
-				D87EE55521D13B090076195F /* RxCocoa.framework in Frameworks */,
-				D8BA533B21D0528100B987A8 /* RxSwift.framework in Frameworks */,
+				D8BBB2E725ED673700EEB0F5 /* Kingfisher.xcframework in Frameworks */,
+				D8BBB2ED25ED674D00EEB0F5 /* RxSwift.xcframework in Frameworks */,
+				D8BBB2E825ED673700EEB0F5 /* RxCocoa.xcframework in Frameworks */,
+				D86B3C9625F0210A00252BDD /* RxBlocking.xcframework in Frameworks */,
+				D8BBB2E925ED673700EEB0F5 /* RxRelay.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,8 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D82DD74621DA64C0006000BD /* RxBlocking.framework in Frameworks */,
-				D82DD74421DA64C0006000BD /* RxSwift.framework in Frameworks */,
+				D86B3CA125F0214800252BDD /* RxBlocking.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,11 +250,11 @@
 		D8BA533921D0528000B987A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D81DFA00243A4C6600A0E733 /* RxRelay.framework */,
-				D82DD74521DA64C0006000BD /* RxBlocking.framework */,
-				D865E14A21D9988F007F2C6A /* Kingfisher.framework */,
-				D87EE55421D13B090076195F /* RxCocoa.framework */,
-				D8BA533A21D0528100B987A8 /* RxSwift.framework */,
+				D8BBB2E425ED673700EEB0F5 /* Kingfisher.xcframework */,
+				D8BBB2E525ED673700EEB0F5 /* RxCocoa.xcframework */,
+				D8BBB2EC25ED674D00EEB0F5 /* RxSwift.xcframework */,
+				D86B3C8A25F020A700252BDD /* RxBlocking.xcframework */,
+				D8BBB2E625ED673700EEB0F5 /* RxRelay.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -284,8 +269,6 @@
 				D8B0E53021CD6AC00005B871 /* Sources */,
 				D8B0E53121CD6AC00005B871 /* Frameworks */,
 				D8B0E53221CD6AC00005B871 /* Resources */,
-				D8BA533C21D0530100B987A8 /* ShellScript */,
-				D81DFA06243A4CC800A0E733 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,8 +285,6 @@
 			buildPhases = (
 				D8B0E54721CD6AC20005B871 /* Sources */,
 				D8B0E54821CD6AC20005B871 /* Frameworks */,
-				D8B0E54921CD6AC20005B871 /* Resources */,
-				D874C42821DA640E00764944 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -389,13 +370,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8B0E54921CD6AC20005B871 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D8B0E55421CD6AC20005B871 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,53 +378,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D874C42821DA640E00764944 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxBlocking.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-		D8BA533C21D0530100B987A8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8B0E53021CD6AC00005B871 /* Sources */ = {
@@ -645,7 +572,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = RandomUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = RandomUser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -688,7 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = RandomUserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -712,7 +639,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build",
 				);
 				INFOPLIST_FILE = RandomUserTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
