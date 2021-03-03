@@ -20,6 +20,6 @@ Technologies used: CoreData, [RxSwift](https://github.com/ReactiveX/RxSwift), [K
 **Get the dependencies:**
 
 ```bash
-> carthage bootstrap --platform iOS
+> carthage bootstrap --use-xcframeworks --no-use-binaries --platform iOS
 ```
 
