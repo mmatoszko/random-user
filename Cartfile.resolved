@@ -1,2 +1,2 @@
-github "ReactiveX/RxSwift" "6.1.0"
-github "onevcat/Kingfisher" "6.1.1"
+github "ReactiveX/RxSwift" "6.5.0"
+github "onevcat/Kingfisher" "7.2.2"
