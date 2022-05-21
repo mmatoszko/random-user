@@ -9,7 +9,7 @@
 import RxCocoa
 import RxSwift
 
-protocol UserListPresenterType: class {
+protocol UserListPresenterType: AnyObject {
 
     typealias UsersUpdate = (users: [User], animate: Bool)
     typealias ReloadUsersLookup = (UsersUpdate) -> Void
