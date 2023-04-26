@@ -6,7 +6,7 @@ Technologies used: CoreData, [RxSwift](https://github.com/ReactiveX/RxSwift), [K
 
 ### Requirements
 
-- [Xcode 12.4](https://developer.apple.com/xcode/)
+- [Xcode 14.2](https://developer.apple.com/xcode/)
 - [Carthage](https://github.com/Carthage/Carthage)
 
 ### Installing
